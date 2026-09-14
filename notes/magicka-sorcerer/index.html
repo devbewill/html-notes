@@ -244,6 +244,16 @@ tr:last-child td{border-bottom:1px solid var(--ink)}
 }
 .legend .legend-items>span{display:flex;align-items:center;gap:8px}
 
+.source-link{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}.source-link:hover{color:var(--ink)}
+/* ---------- fixed section selector ---------- */
+.section-jump{position:fixed;right:24px;top:24px;z-index:20;border:1px solid var(--hairline);background:rgba(251,251,249,.96);color:var(--ink);font:10px Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;padding:9px 30px 9px 10px;min-width:150px;outline:0;cursor:pointer}.section-jump:focus{border-color:var(--accent)}
+/* ---------- compact priority roadmap ---------- */
+.roadmap li{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:12px;padding:8px 0}
+.roadmap .num{font-size:26px;min-width:0}
+.roadmap li>div{display:flex;align-items:baseline;gap:10px;min-width:0;white-space:nowrap}
+.roadmap .name{font-size:14px;flex-shrink:0}.roadmap .why{font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0}.roadmap .prio{margin:0}
+@media(max-width:760px){.section-jump{right:12px;top:12px}.roadmap li{grid-template-columns:32px minmax(0,1fr);gap:8px}.roadmap li>div{display:block;white-space:normal}.roadmap .why{white-space:normal;margin-top:2px}.roadmap .prio{display:inline-block;margin-top:4px}}
+
 /* ---------- skill descriptions ---------- */
 .skill .official{
   font-size:13px;color:var(--ink);
@@ -338,6 +348,7 @@ footer p{font-size:12px;color:var(--faint)}
 </style>
 </head>
 <body>
+<select class="section-jump" aria-label="Vai alla sezione"><option value="">Vai alla sezione…</option><option value="priorita">01 · Priorità</option><option value="skills">02 · Abilità</option><option value="progressione">03 · Progressione</option><option value="rotazione">04 · Rotazione</option><option value="gear">05 · Gear</option><option value="cp">06 · Champion Points</option><option value="consigli">07 · Consigli</option><option value="razza">08 · Razza</option></select>
 <div class="wrap">
 
 <header>
@@ -353,101 +364,20 @@ footer p{font-size:12px;color:var(--faint)}
 
 <!-- ==================== PRIORITA' ==================== -->
 <section id="priorita">
-  <div class="sec-head">
-    <span class="section-num">01</span>
-    <h2>Priorità di sblocco</h2>
-    <div class="rule"></div>
-  </div>
-  <p class="kicker" style="margin-bottom:8px">Segui quest'ordine per livellare</p>
+  <div class="sec-head"><span class="section-num">01</span><h2>Priorità di sblocco</h2><div class="rule"></div></div>
+  <p class="kicker" style="margin-bottom:8px">Percorso verso la build Hyperioxes · senza pet</p>
   <ol class="roadmap">
-    <li>
-      <span class="num">01</span>
-      <div>
-        <div class="name">Summon Volatile Familiar</div>
-        <div class="why">Il primo pet daedric. Danno passivo enorme fin dai primi livelli.</div>
-        <span class="prio p1">Sblocca subito · liv. 1</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">02</span>
-      <div>
-        <div class="name">Crystal Fragments</div>
-        <div class="why">Il tuo spammable. Istante e gratuito quando procca.</div>
-        <span class="prio p1">Sblocca subito · liv. 2–4</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">03</span>
-      <div>
-        <div class="name">Critical Surge</div>
-        <div class="why">+20% danni magia e cura a ogni crit. Ti tiene in vita da solo.</div>
-        <span class="prio p1">Sblocca subito · liv. 4–8</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">04</span>
-      <div>
-        <div class="name">Daedric Prey</div>
-        <div class="why">+50% danni dei pet per 6s. Il buff più importante della build.</div>
-        <span class="prio p2">Core · morph liv. ~10</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">05</span>
-      <div>
-        <div class="name">Hurricane</div>
-        <div class="why">AoE persistente + resistenze. Pre-buff a ogni scontro.</div>
-        <span class="prio p2">Core · liv. ~10</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">06</span>
-      <div>
-        <div class="name">Liquid Lightning</div>
-        <div class="why">DOT ad area. Si combina con Elemental Blockade.</div>
-        <span class="prio p2">Core · liv. ~12</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">07</span>
-      <div>
-        <div class="name">Power Overload</div>
-        <div class="why">Ultimate: le light attack diventano AoE.</div>
-        <span class="prio p2">Core · ultimate liv. 12</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">08</span>
-      <div>
-        <div class="name">Bound Armaments</div>
-        <div class="why">Slot passivo: +max magicka e crit. Non va ricastato.</div>
-        <span class="prio p2">Core · liv. 15</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">09</span>
-      <div>
-        <div class="name">Elemental Blockade</div>
-        <div class="why">DOT ad area sulla back bar (sbloccata al 15).</div>
-        <span class="prio p2">Core · liv. 15 (back bar)</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">10</span>
-      <div>
-        <div class="name">Twilight Matriarch</div>
-        <div class="why">Secondo pet, cura a comando. Completa la sopravvivenza.</div>
-        <span class="prio p3">Completa · liv. ~20</span>
-      </div>
-    </li>
-    <li>
-      <span class="num">11</span>
-      <div>
-        <div class="name">Summon Charged Atronach</div>
-        <div class="why">Ultimate alternativo per burst single-target.</div>
-        <span class="prio p3">Completa · liv. ~24</span>
-      </div>
-    </li>
+    <li><span class="num">01</span><div><span class="name">Crystal Fragments</span><span class="why">Spammable iniziale e proc di burst.</span></div><span class="prio p1">Liv. 1–10</span></li>
+    <li><span class="num">02</span><div><span class="name">Critical Surge</span><span class="why">Major Sorcery + cura a ogni crit.</span></div><span class="prio p1">Liv. 4–12</span></li>
+    <li><span class="num">03</span><div><span class="name">Liquid Lightning</span><span class="why">Primo DOT ad area della rotazione.</span></div><span class="prio p2">Liv. 10–15</span></li>
+    <li><span class="num">04</span><div><span class="name">Hurricane</span><span class="why">Buff difensivo e AoE persistente.</span></div><span class="prio p2">Liv. 15</span></li>
+    <li><span class="num">05</span><div><span class="name">Elemental Blockade</span><span class="why">DOT della back bar, poi Crushing Wall.</span></div><span class="prio p2">Liv. 15–20</span></li>
+    <li><span class="num">06</span><div><span class="name">Elemental Susceptibility</span><span class="why">Major Breach: riduce le resistenze del bersaglio.</span></div><span class="prio p2">Liv. 20+</span></li>
+    <li><span class="num">07</span><div><span class="name">Bound Armaments</span><span class="why">Slot passivo per la front bar.</span></div><span class="prio p2">Liv. 25+</span></li>
+    <li><span class="num">08</span><div><span class="name">Traveling Knife</span><span class="why">Spammable finale con Scribing.</span></div><span class="prio p2">Scribing</span></li>
+    <li><span class="num">09</span><div><span class="name">Ulfsild's Contingency</span><span class="why">Scudo finale con Scribing.</span></div><span class="prio p2">Scribing</span></li>
+    <li><span class="num">10</span><div><span class="name">Barbed Trap</span><span class="why">Minor Force per i danni critici.</span></div><span class="prio p3">Fighters Guild</span></li>
+    <li><span class="num">11</span><div><span class="name">Charged Atronach</span><span class="why">Ultimate della back bar.</span></div><span class="prio p3">Liv. 40+</span></li>
   </ol>
 </section>
 
@@ -973,5 +903,6 @@ footer p{font-size:12px;color:var(--faint)}
 </footer>
 
 </div>
+  <script>document.querySelector('.section-jump').addEventListener('change',e=>{if(e.target.value){document.getElementById(e.target.value).scrollIntoView({behavior:'smooth'});e.target.value=''}});</script>
 </body>
 </html>
