@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorcerer Magicka — Guida Livellamento · ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfbf9;
+  --ink:#131313;
+  --muted:#6b6b6b;
+  --faint:#9c9c95;
+  --hairline:#e7e4dc;
+  --accent:#6c3df4;
+  --accent-soft:#f1ecff;
+  --gold:#b07b00;
+  --gold-soft:#faf3e0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.7;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+
+/* ---------- typography ---------- */
+.kicker{
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.16em;color:var(--faint);
+}
+.display{
+  font-family:'Fraunces',serif;
+  font-weight:500;letter-spacing:-.02em;line-height:1.05;
+  color:var(--ink);
+}
+.section-num{
+  font-family:'Fraunces',serif;
+  font-size:13px;font-weight:600;color:var(--accent);
+  letter-spacing:.06em;
+}
+
+/* ---------- header ---------- */
+header{padding:64px 0 40px;border-bottom:1px solid var(--hairline)}
+header .kicker{margin-bottom:20px}
+header h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(44px,8vw,72px);
+  font-weight:400;line-height:.98;letter-spacing:-.03em;
+  margin-bottom:16px;
+}
+header h1 em{font-style:italic;font-weight:300;color:var(--accent)}
+header .sub{
+  font-size:15px;color:var(--muted);max-width:44ch;
+}
+header .meta{
+  display:flex;gap:24px;margin-top:28px;font-size:12px;
+  color:var(--faint);text-transform:uppercase;letter-spacing:.08em;font-weight:600;
+}
+
+/* ---------- section skeleton ---------- */
+section{padding:56px 0;border-bottom:1px solid var(--hairline)}
+.sec-head{
+  display:flex;align-items:baseline;gap:16px;
+  margin-bottom:32px;
+}
+.sec-head h2{
+  font-family:'Fraunces',serif;font-weight:500;
+  font-size:34px;letter-spacing:-.02em;line-height:1;
+}
+.sec-head .rule{flex:1;height:1px;background:var(--hairline);align-self:center}
+
+/* ---------- priority badge ---------- */
+.prio{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:2px;white-space:nowrap;
+}
+.prio.p1{background:var(--ink);color:#fff}
+.prio.p2{background:var(--accent);color:#fff}
+.prio.p3{border:1px solid var(--hairline);color:var(--faint)}
+
+/* ---------- roadmap (priority) ---------- */
+.roadmap{list-style:none;counter-reset:step}
+.roadmap li{
+  display:flex;align-items:flex-start;gap:24px;
+  padding:18px 0;border-bottom:1px solid var(--hairline);
+}
+.roadmap li:last-child{border-bottom:none}
+.roadmap .num{
+  font-family:'Fraunces',serif;font-size:44px;font-weight:300;
+  line-height:1;color:var(--faint);min-width:52px;font-variant-numeric:tabular-nums;
+}
+.roadmap .name{font-weight:700;font-size:16px}
+.roadmap .why{font-size:13px;color:var(--muted);margin-top:2px}
+.roadmap .prio{margin-top:8px}
+
+/* ---------- skill row ---------- */
+.skill{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:22px 0;border-bottom:1px solid var(--hairline);
+}
+.skill:last-child{border-bottom:none}
+.skill .icon{
+  width:46px;height:46px;flex-shrink:0;border:1px solid var(--hairline);
+  border-radius:4px;overflow:hidden;background:#fff;
+}
+.skill .icon img{width:100%;height:100%;object-fit:cover;display:block}
+.skill .body{flex:1}
+.skill .top{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;margin-bottom:4px;
+}
+.skill .name{font-weight:700;font-size:16px}
+.skill .morph{font-weight:400;color:var(--faint);font-size:13px}
+.skill .line{
+  font-size:10px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--accent);margin-bottom:6px;
+}
+.skill .desc{font-size:13.5px;color:var(--muted);max-width:56ch}
+.skill.ultimate .icon{border-color:var(--gold)}
+.skill.ultimate .name{color:var(--gold)}
+
+/* ---------- bar label ---------- */
+.bar{
+  display:flex;align-items:center;gap:12px;margin:28px 0 4px;
+}
+.bar .bar-name{font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.1em}
+.bar .bar-weapon{font-size:12px;color:var(--faint);font-weight:500}
+.bar .bar-rule{flex:1;height:1px;background:var(--hairline)}
+
+/* ---------- rotation ---------- */
+.rot{list-style:none;counter-reset:r}
+.rot li{
+  display:flex;gap:20px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--hairline);
+}
+.rot li:last-child{border-bottom:none}
+.rot .step{
+  font-family:'Fraunces',serif;font-size:22px;font-weight:400;
+  color:var(--accent);min-width:34px;font-variant-numeric:tabular-nums;
+}
+.rot .txt{font-size:14px}
+.rot .txt strong{font-weight:700}
+.rot .cd{font-size:12px;color:var(--faint);font-weight:500}
+
+/* ---------- note ---------- */
+.note{
+  display:flex;gap:12px;padding:18px 0;margin:24px 0 0;
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+  font-size:13.5px;color:var(--muted);
+}
+.note .mark{font-size:16px;line-height:1.4;flex-shrink:0}
+.note b{color:var(--ink);font-weight:700}
+
+/* ---------- gear ---------- */
+.gear-set{padding:24px 0;border-bottom:1px solid var(--hairline)}
+.gear-set:last-child{border-bottom:none}
+.gear-set .head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px;
+}
+.gear-set .set-name{
+  font-family:'Fraunces',serif;font-size:26px;font-weight:500;letter-spacing:-.01em;
+}
+.gear-set .pieces{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);
+}
+.gear-set .src{font-size:12.5px;color:var(--faint);font-weight:500}
+.gear-set .bonus{
+  list-style:none;margin-top:10px;font-size:13px;color:var(--muted);
+  columns:2;column-gap:32px;
+}
+.gear-set .bonus li{padding:2px 0;break-inside:avoid}
+.gear-set .bonus b{color:var(--ink);font-weight:600}
+
+/* ---------- gear table ---------- */
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13px}
+th{
+  text-align:left;padding:10px 12px;font-size:10px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--faint);
+  border-bottom:1px solid var(--ink);
+}
+td{padding:11px 12px;border-bottom:1px solid var(--hairline);color:var(--muted)}
+td b{color:var(--ink);font-weight:600}
+tr:last-child td{border-bottom:1px solid var(--ink)}
+.trait{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  padding:3px 8px;border-radius:2px;
+}
+.trait.divines{background:var(--accent-soft);color:var(--accent)}
+.trait.precise{background:#e8f1ff;color:#1a66cc}
+.trait.infused{background:var(--gold-soft);color:var(--gold)}
+
+/* ---------- cp ---------- */
+.cp-block{margin:20px 0}
+.cp-block .cp-label{
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  margin-bottom:12px;
+}
+.cp-block.warfare .cp-label{color:#c0392b}
+.cp-block.fitness .cp-label{color:#1f9d55}
+.cp-block.craft .cp-label{color:#1a66cc}
+.cp-nodes{display:flex;flex-wrap:wrap;gap:8px}
+.cp-node{
+  font-size:12.5px;font-weight:500;padding:7px 14px;
+  border:1px solid var(--hairline);border-radius:2px;
+}
+.cp-node .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px}
+.dot.red{background:#c0392b}.dot.green{background:#1f9d55}.dot.blue{background:#1a66cc}
+
+/* ---------- tips ---------- */
+.tips{list-style:none}
+.tips li{
+  display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--hairline);
+  font-size:13.5px;color:var(--muted);
+}
+.tips li:last-child{border-bottom:none}
+.tips .ico{flex-shrink:0;font-size:15px;line-height:1.6}
+.tips b{color:var(--ink);font-weight:700}
+
+/* ---------- legend ---------- */
+.legend{
+  padding:18px 0;margin-bottom:8px;border-bottom:1px solid var(--hairline);
+}
+.legend .legend-title{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--faint);margin-bottom:12px;
+}
+.legend .legend-items{
+  display:flex;flex-wrap:wrap;gap:10px 28px;
+  font-size:12.5px;color:var(--muted);
+}
+.legend .legend-items>span{display:flex;align-items:center;gap:8px}
+
+/* ---------- skill descriptions ---------- */
+.skill .official{
+  font-size:13px;color:var(--ink);
+  border-left:2px solid var(--accent);padding-left:14px;
+  margin:10px 0 10px;
+}
+.skill .official .cost{
+  display:block;margin-top:5px;font-size:11px;font-weight:600;
+  color:var(--faint);letter-spacing:.02em;
+}
+.skill .why{font-size:13px;color:var(--muted)}
+.skill .why-label{
+  font-size:9px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--accent);margin-right:6px;
+}
+.skill .tree{
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--accent);margin-bottom:2px;
+}
+
+/* ---------- progression cluster ---------- */
+.cluster{
+  padding:28px 0;border-bottom:1px solid var(--hairline);
+}
+.cluster:last-child{border-bottom:none}
+.cluster .c-head{
+  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px;
+}
+.cluster .c-range{
+  font-family:'Fraunces',serif;font-size:28px;font-weight:400;letter-spacing:-.01em;
+}
+.cluster .c-sub{font-size:12px;color:var(--faint);font-weight:500}
+.cluster .c-skill{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--accent);margin-bottom:6px;
+}
+.cluster .c-list{
+  list-style:none;font-size:13px;color:var(--muted);margin-bottom:16px;
+}
+.cluster .c-list li{padding:3px 0}
+.cluster .c-list b{color:var(--ink);font-weight:600}
+.cluster .c-rot-label{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--ink);margin:14px 0 6px;
+}
+.cluster .c-rot{list-style:none}
+.cluster .c-rot li{
+  display:flex;gap:14px;align-items:baseline;
+  padding:9px 0;border-bottom:1px solid var(--hairline);
+  font-size:13px;
+}
+.cluster .c-rot li:last-child{border-bottom:none}
+.cluster .c-rot .n{
+  font-family:'Fraunces',serif;font-size:17px;color:var(--accent);
+  min-width:24px;font-variant-numeric:tabular-nums;
+}
+.cluster .c-rot strong{font-weight:700}
+.cluster .c-weapon{
+  margin-top:14px;padding:12px 0;border-top:1px solid var(--hairline);
+  font-size:12.5px;color:var(--muted);display:flex;gap:12px;align-items:flex-start;
+}
+.cluster .c-weapon b{color:var(--ink);font-weight:700}
+.cluster .c-weapon .w-ico{flex-shrink:0;font-size:15px;line-height:1.5}
+
+/* ---------- race ---------- */
+.race{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+.race .card{background:var(--paper);padding:26px 22px}
+.race .card.best{background:var(--ink);color:#fff}
+.race .r-icon{font-size:28px;margin-bottom:14px}
+.race .r-name{font-family:'Fraunces',serif;font-size:22px;font-weight:500;margin-bottom:6px}
+.race .r-tag{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  margin-bottom:16px;
+}
+.race .card.best .r-tag{color:var(--gold)}
+.race .card:not(.best) .r-tag{color:var(--faint)}
+.race .r-list{list-style:none;font-size:12px;line-height:1.8}
+.race .card:not(.best) .r-list{color:var(--muted)}
+.race .card.best .r-list{color:rgba(255,255,255,.8)}
+.race .r-list b{color:inherit;font-weight:700}
+
+/* ---------- footer ---------- */
+footer{padding:40px 0 64px;text-align:center}
+footer p{font-size:12px;color:var(--faint)}
+
+@media(max-width:640px){
+  .race{grid-template-columns:1fr}
+  .gear-set .bonus{columns:1}
+  .roadmap .num{font-size:34px;min-width:40px}
+  section{padding:44px 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Elder Scrolls Online · Update 50</div>
+  <h1>Sorcerer<br><em>Magicka</em> DPS</h1>
+  <p class="sub">Guida di livellamento da 1 a CP160, verso la build <b>Solo Magicka Sorcerer di Hyperioxes</b> (Update 50): niente pet, dual wield daggers davanti, DOT e sustain da Critical Surge. Fonte: hyperioxes.com/eso/solo/magicka-sorcerer-build</p>
+  <div class="meta">
+    <span>Livello 1 → CP160</span>
+    <span>PvE · Solo</span>
+    <span>Destruction Staff</span>
+  </div>
+</header>
+
+<!-- ==================== PRIORITA' ==================== -->
+<section id="priorita">
+  <div class="sec-head">
+    <span class="section-num">01</span>
+    <h2>Priorità di sblocco</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="kicker" style="margin-bottom:8px">Segui quest'ordine per livellare</p>
+  <ol class="roadmap">
+    <li>
+      <span class="num">01</span>
+      <div>
+        <div class="name">Summon Volatile Familiar</div>
+        <div class="why">Il primo pet daedric. Danno passivo enorme fin dai primi livelli.</div>
+        <span class="prio p1">Sblocca subito · liv. 1</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">02</span>
+      <div>
+        <div class="name">Crystal Fragments</div>
+        <div class="why">Il tuo spammable. Istante e gratuito quando procca.</div>
+        <span class="prio p1">Sblocca subito · liv. 2–4</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">03</span>
+      <div>
+        <div class="name">Critical Surge</div>
+        <div class="why">+20% danni magia e cura a ogni crit. Ti tiene in vita da solo.</div>
+        <span class="prio p1">Sblocca subito · liv. 4–8</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">04</span>
+      <div>
+        <div class="name">Daedric Prey</div>
+        <div class="why">+50% danni dei pet per 6s. Il buff più importante della build.</div>
+        <span class="prio p2">Core · morph liv. ~10</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">05</span>
+      <div>
+        <div class="name">Hurricane</div>
+        <div class="why">AoE persistente + resistenze. Pre-buff a ogni scontro.</div>
+        <span class="prio p2">Core · liv. ~10</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">06</span>
+      <div>
+        <div class="name">Liquid Lightning</div>
+        <div class="why">DOT ad area. Si combina con Elemental Blockade.</div>
+        <span class="prio p2">Core · liv. ~12</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">07</span>
+      <div>
+        <div class="name">Power Overload</div>
+        <div class="why">Ultimate: le light attack diventano AoE.</div>
+        <span class="prio p2">Core · ultimate liv. 12</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">08</span>
+      <div>
+        <div class="name">Bound Armaments</div>
+        <div class="why">Slot passivo: +max magicka e crit. Non va ricastato.</div>
+        <span class="prio p2">Core · liv. 15</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">09</span>
+      <div>
+        <div class="name">Elemental Blockade</div>
+        <div class="why">DOT ad area sulla back bar (sbloccata al 15).</div>
+        <span class="prio p2">Core · liv. 15 (back bar)</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">10</span>
+      <div>
+        <div class="name">Twilight Matriarch</div>
+        <div class="why">Secondo pet, cura a comando. Completa la sopravvivenza.</div>
+        <span class="prio p3">Completa · liv. ~20</span>
+      </div>
+    </li>
+    <li>
+      <span class="num">11</span>
+      <div>
+        <div class="name">Summon Charged Atronach</div>
+        <div class="why">Ultimate alternativo per burst single-target.</div>
+        <span class="prio p3">Completa · liv. ~24</span>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ==================== SKILLS ==================== -->
+<section id="skills">
+  <div class="sec-head">
+    <span class="section-num">02</span>
+    <h2>Abilità</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-title">Legenda priorità — quando sbloccare ogni skill</div>
+    <div class="legend-items">
+      <span><span class="prio p1">Priorità 1</span> sblocca per primo · livelli 1–8</span>
+      <span><span class="prio p2">Priorità 2</span> fulcro della build · livelli 10–30</span>
+      <span><span class="prio p3">Priorità 3</span> completa la build · livelli 20+</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="mark">★</span>
+    <div><b>La build finale (Hyperioxes U50) non usa pet:</b> il DPS viene da DOT, debuff e lo spammable Traveling Knife. Le due Grimoire (Traveling Knife e Ulfsild's Contingency) si sbloccano con la questline <b>Scribing</b> — durante il leveling userai Crystal Fragments e Hardened Ward al loro posto.</div>
+  </div>
+
+  <div class="bar">
+    <span class="bar-name">Front Bar</span>
+    <span class="bar-weapon">Dual Wield · Daggers</span>
+    <div class="bar-rule"></div>
+  </div>
+  <div class="skill">
+    <div class="icon"><img src="assets/traveling-knife.webp" alt="Traveling Knife"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Traveling Knife</span> <span class="morph">— Scribing · Magic + Assassin's Misery + Berserk</span></div>
+        <span class="prio p1">Priorità 1</span>
+      </div>
+      <div class="tree">Grimoire → Traveling Knife · Spammable</div>
+      <div class="official">Lanci un coltello magico contro il nemico infliggendo danni di magia. Con gli script <b>Magic + Assassin's Misery + Berserk</b>, aumenta del 100% la probabilità di applicare effetti di stato ai nemici colpiti e ti concede <b>Minor Berserk</b> (+5% danni inflitti).<span class="cost">Costo: ~2.430 Magicka · Raggio 28m</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>È lo spammable della build: lo lanci in continuazione tra un DOT e l'altro. Richiede la quest di <b>Scribing</b> per sbloccarlo — prima usa Crystal Fragments.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/liquid-lightning.webp" alt="Liquid Lightning"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Liquid Lightning</span> <span class="morph">— morph di Lightning Splash</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Sorcerer → Storm Calling · DOT ad area</div>
+      <div class="official">Evochi una <b>pozza di fulmini al suolo</b> che infligge danni da shock ogni secondo per 10 secondi ai nemici nell'area.<span class="cost">Costo: ~2.430 Magicka · Durata 10s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Uno dei DOT centrali della rotazione. Ricastalo <b>ogni 10 secondi</b>.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/bound-armaments.webp" alt="Bound Armaments"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Bound Armaments</span> <span class="morph">— morph di Bound Armor</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Sorcerer → Daedric Summoning · Passivo</div>
+      <div class="official">Evochi armamenti legati: <b>+8% max stamina</b>, danni di light/heavy attack aumentati, e ogni light attack scaglia un armamento. Dura fino a 5 minuti.<span class="cost">Costo: ~2.700 Magicka · Slot passivo</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>È uno slot passivo: lo attivi e basta. Non va ricastato durante il combattimento.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/crystal-fragments.webp" alt="Crystal Fragments"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Crystal Fragments</span> <span class="morph">— morph di Crystal Shard</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Sorcerer → Dark Magic · Burst</div>
+      <div class="official">Scagli frammenti di cristallo oscuro infliggendo danni di magia. Dopo aver usato qualsiasi altra abilità di Magicka, il lancio diventa <b>istantaneo e gratuito</b> con danni aumentati.<span class="cost">Costo: ~2.430 Magicka · Raggio 28m</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Nella build finale è il burst secondario: lo usi <b>solo quando procca</b>. È anche il tuo spammable nel leveling, prima di sbloccare Traveling Knife.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/ulfsild-s-contingency.webp" alt="Ulfsild's Contingency"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Ulfsild's Contingency</span> <span class="morph">— Grimoire · Magic + Shock + Leech</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Grimoire → Ulfsild's Contingency · Scudo</div>
+      <div class="official">Ti circondi di un <b>sigillo protettivo</b> che assorbe i danni subiti. Con gli script <b>Magic + Shock + Leech</b>, quando lo scudo viene consumato infligge danni da shock e restituisce risorse.<span class="cost">Costo: ~2.160 Magicka · Durata 6s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Lo scudo che ti tiene in vita nei contenuti difficili. Anche questo è una Grimoire di Scribing — prima usa Hardened Ward (Light Armor).</div>
+    </div>
+  </div>  <div class="skill ultimate">
+    <div class="icon"><img src="assets/power-overload.webp" alt="Power Overload"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Power Overload</span> <span class="morph">— morph di Overload</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Sorcerer → Storm Calling · Ultimate</div>
+      <div class="official">ULTIMATE — Sovraccarichi gli attacchi di energia tempestosa: le <b>light attack diventano colpi ad area</b> che infliggono danni da shock finché hai ultimate disponibile.<span class="cost">Costo: 125 Ultimate</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>L'ultimate di base: attivalo appena la barra è piena.</div>
+    </div>
+  </div>
+  <div class="bar">
+    <span class="bar-name">Back Bar</span>
+    <span class="bar-weapon">Lightning Staff · Maelstrom</span>
+    <div class="bar-rule"></div>
+  </div>
+  <div class="skill">
+    <div class="icon"><img src="assets/hurricane.webp" alt="Hurricane"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Hurricane</span> <span class="morph">— morph di Lightning Form</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Sorcerer → Storm Calling · Buff + AoE</div>
+      <div class="official">Ti avvolgi di una tempesta per 20 secondi: <b>aumenti le resistenze</b> fisiche e magiche e infliggi danni da shock ai nemici vicini ogni 2 secondi.<span class="cost">Costo: ~3.780 Magicka · Durata 20s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Pre-buff di ogni scontro: difesa e danno AoE persistente intorno a te.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/critical-surge.webp" alt="Critical Surge"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Critical Surge</span> <span class="morph">— morph di Surge</span></div>
+        <span class="prio p1">Priorità 1</span>
+      </div>
+      <div class="tree">Sorcerer → Storm Calling · Sustain</div>
+      <div class="official">Attivi un potere daedrico per ~33 secondi: <b>+20% danni</b> (Major Brutality e Sorcery) e <b>ogni colpo critico ti cura</b>.<span class="cost">Costo: ~2.700 Magicka · Durata 33s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>La tua fonte di sopravvivenza: finché è attivo e critti, ti curi da solo. <b>Mai lasciarlo scadere</b>.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/elemental-susceptibility.webp" alt="Elemental Susceptibility"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Elemental Susceptibility</span> <span class="morph">— morph di Weakness to Elements</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Arma → Destruction Staff · Debuff</div>
+      <div class="official">Applichi <b>Major Breach</b> a un nemico per 30 secondi: riduce le sue resistenze fisiche e magiche di ~5.948. Aumenta la probabilità che lo status gli venga applicato.<span class="cost">Costo: ~2.160 Magicka · Durata 30s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Il debuff che amplifica tutto il tuo danno: <b>sempre attivo sul boss</b>.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/elemental-blockade.webp" alt="Elemental Blockade"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Elemental Blockade</span> <span class="morph">— morph di Wall of Elements</span></div>
+        <span class="prio p2">Priorità 2</span>
+      </div>
+      <div class="tree">Arma → Destruction Staff · DOT ad area</div>
+      <div class="official">Scagli il bastone a terra creando una <b>barriera elementale</b> che infligge danni di magia ogni secondo per 10 secondi ai nemici nell'area.<span class="cost">Costo: ~3.780 Magicka · Durata 10s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Il DOT principale della back bar. Con il set <b>Crushing Wall</b> infligge anche danni bonus. Ricastalo <b>ogni 10 secondi</b>.</div>
+    </div>
+  </div>  <div class="skill">
+    <div class="icon"><img src="assets/barbed-trap.webp" alt="Barbed Trap"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Barbed Trap</span> <span class="morph">— Fighters Guild</span></div>
+        <span class="prio p3">Priorità 3</span>
+      </div>
+      <div class="tree">Guild → Fighters Guild · DOT + buff</div>
+      <div class="official">Posizioni una trappola meccanica a terra: il primo nemico che la innesca subisce danni e viene rallentato. Ti concede anche <b>Minor Force</b> (+10% danni critici) finché è attiva.<span class="cost">Costo: ~2.835 Magicka · Durata 18s</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>Serve per il buff <b>Minor Force</b> che aumenta i danni critici. Si sblocca salendo di rango nella Fighters Guild.</div>
+    </div>
+  </div>  <div class="skill ultimate">
+    <div class="icon"><img src="assets/summon-charged-atronach.webp" alt="Summon Charged Atronach"></div>
+    <div class="body">
+      <div class="top">
+        <div><span class="name">Summon Charged Atronach</span> <span class="morph">— morph di Summon Storm Atronach</span></div>
+        <span class="prio p3">Priorità 3</span>
+      </div>
+      <div class="tree">Sorcerer → Daedric Summoning · Ultimate</div>
+      <div class="official">ULTIMATE — Evochi un <b>atronach della tempesta</b> che fulmina i nemici ad area; il suo arrivo stordisce i nemici vicini.<span class="cost">Costo: 200 Ultimate</span></div>
+      <div class="why"><span class="why-label">Perché la usiamo</span>L'ultimate della back bar: ottimo per burst e controllo nei contenuti difficili.</div>
+    </div>
+  </div></section>
+
+<!-- ==================== PROGRESSIONE ==================== -->
+<section id="progressione">
+  <div class="sec-head">
+    <span class="section-num">03</span>
+    <h2>Progressione per livello</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="note">
+    <span class="mark">◆</span>
+    <div><b>Come leggerla:</b> per ogni fascia di livello trovi le skill da sbloccare, la rotazione con quello che hai, e quale arma usare. L'obiettivo è arrivare alla build finale di Hyperioxes (U50): dual wield daggers + lightning staff, senza pet.</div>
+  </div>
+
+  <div class="cluster">
+    <div class="c-head">
+      <span class="c-range">Livello 1–15</span>
+      <span class="c-sub">Le basi — staff di fulmine, una sola barra</span>
+    </div>
+    <div class="c-skill">Skill da sbloccare</div>
+    <ul class="c-list">
+      <li><b>1.</b> Crystal Shard (Dark Magic) — lo spammable iniziale</li>
+      <li><b>2.</b> Surge (Storm Calling) — liv. 4</li>
+      <li><b>3.</b> Lightning Splash (Storm Calling) — liv. 6</li>
+      <li><b>4.</b> Lightning Form (Storm Calling) — liv. 8</li>
+      <li><b>5.</b> Morph di Crystal Shard → Crystal Fragments (liv. 10)</li>
+      <li><b>6.</b> Morph di Surge → Critical Surge (liv. 12)</li>
+      <li><b>7.</b> Inizia la questline <b>Mages Guild</b> e <b>Fighters Guild</b> per sbloccarne le skill lines</li>
+    </ul>
+    <div class="c-rot-label">Rotazione · livello 1–15</div>
+    <ol class="c-rot">
+      <li><span class="n">1</span><span><strong>Critical Surge</strong> (pre-buff)</span></li>
+      <li><span class="n">2</span><span><strong>Lightning Splash</strong></span></li>
+      <li><span class="n">3</span><span><strong>Crystal Fragments</strong> (spamma, meglio se procca)</span></li>
+      <li><span class="n">4</span><span><strong>Heavy Attack</strong> con lo staff quando serve magicka</span></li>
+    </ol>
+    <div class="c-weapon">
+      <span class="w-ico">⚡</span>
+      <div><b>Arma:</b> un <b>Lightning Staff</b> qualsiasi — il primo che droppi. Le sue heavy attack AoE e il passivo di Destruction Staff rendono il leveling velocissimo. Non comprare nulla: il loot basta.</div>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="c-head">
+      <span class="c-range">Livello 15–30</span>
+      <span class="c-sub">Back bar sbloccata — arriva il primo scudo e i debuff</span>
+    </div>
+    <div class="c-skill">Skill da sbloccare</div>
+    <ul class="c-list">
+      <li><b>1.</b> Morph di Lightning Splash → Liquid Lightning (liv. 15)</li>
+      <li><b>2.</b> Morph di Lightning Form → Hurricane (liv. 15)</li>
+      <li><b>3.</b> Wall of Elements (Destruction Staff, back bar) — liv. 16</li>
+      <li><b>4.</b> Weakness to Elements (Destruction Staff) — liv. 18</li>
+      <li><b>5.</b> Hardened Ward (Light Armor) — il primo scudo, sblocca la skill line Light Armor</li>
+      <li><b>6.</b> Morph di Wall of Elements → Elemental Blockade (liv. 20)</li>
+      <li><b>7.</b> Overload → Power Overload (ultimate, liv. 20)</li>
+      <li><b>8.</b> Morph di Weakness to Elements → Elemental Susceptibility (liv. 22)</li>
+      <li><b>9.</b> <b>Scribing</b>: se hai la quest disponibile, sblocca <b>Traveling Knife</b> (Magic + Assassin's Misery + Berserk)</li>
+    </ul>
+    <div class="c-rot-label">Rotazione · livello 15–30</div>
+    <ol class="c-rot">
+      <li><span class="n">0</span><span><strong>Critical Surge</strong> + <strong>Hurricane</strong> (pre-buff)</span></li>
+      <li><span class="n">1</span><span><strong>Elemental Blockade</strong> (back bar)</span></li>
+      <li><span class="n">2</span><span><strong>Elemental Susceptibility</strong> sul bersaglio</span></li>
+      <li><span class="n">3</span><span><strong>Liquid Lightning</strong></span></li>
+      <li><span class="n">4</span><span><strong>Traveling Knife</strong> o <strong>Crystal Fragments</strong> (spammable)</span></li>
+      <li><span class="n">5</span><span><strong>Hardened Ward</strong> quando subisci danni</span></li>
+    </ol>
+    <div class="c-weapon">
+      <span class="w-ico">🗡</span>
+      <div><b>Arma:</b> al 15 si sblocca la back bar. Tieni lo <b>staff</b> sulla back bar (per Elemental Blockade) e inizia a salire <b>Dual Wield</b> sulla front bar con due <b>dagger</b> qualsiasi — è l'arma della build finale, prima la alleni meglio è. I dagger non servono buoni: servono solo per sbloccare il passivo.</div>
+    </div>
+  </div>
+
+  <div class="cluster">
+    <div class="c-head">
+      <span class="c-range">Livello 30–50</span>
+      <span class="c-sub">Build finale in formazione — Grimoire e trappola</span>
+    </div>
+    <div class="c-skill">Skill da sbloccare</div>
+    <ul class="c-list">
+      <li><b>1.</b> Barbed Trap (Fighters Guild) — Minor Force per il danno critico</li>
+      <li><b>2.</b> <b>Ulfsild's Contingency</b> (Scribing: Magic + Shock + Leech) — sostituisce Hardened Ward</li>
+      <li><b>3.</b> Summon Storm Atronach → Charged Atronach (ultimate back bar, liv. ~40)</li>
+      <li><b>4.</b> Bound Armor → Bound Armaments (slot passivo)</li>
+      <li><b>5.</b> Al 50: iniziano i Champion Points — priorità Warfare (Master-at-Arms, Deadly Aim)</li>
+    </ul>
+    <div class="c-rot-label">Rotazione · livello 30–50 (forma finale)</div>
+    <ol class="c-rot">
+      <li><span class="n">0</span><span><strong>Critical Surge</strong> + <strong>Hurricane</strong> + <strong>Bound Armaments</strong></span></li>
+      <li><span class="n">1</span><span><strong>Elemental Susceptibility</strong> (debuff)</span></li>
+      <li><span class="n">2</span><span><strong>Elemental Blockade</strong> + <strong>Barbed Trap</strong> (back bar)</span></li>
+      <li><span class="n">3</span><span><strong>Liquid Lightning</strong></span></li>
+      <li><span class="n">4</span><span><strong>Traveling Knife</strong> (spammable)</span></li>
+      <li><span class="n">5</span><span><strong>Ulfsild's Contingency</strong> quando subisci</span></li>
+      <li><span class="n">6</span><span><strong>Power Overload</strong> o <strong>Charged Atronach</strong> a ultimate piena</span></li>
+    </ol>
+    <div class="c-weapon">
+      <span class="w-ico">⚔</span>
+      <div><b>Arma:</b> entro il 50 la front bar è <b>dual wield daggers</b> (Charged + Poison/Flame) e la back bar un <b>Lightning Staff Infused</b>. Non spendere oro: il set <b>Tide-Born Wildstalker</b> (craftabile) è la versione "budget" della build finale — arrivaci a CP160.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROTAZIONE ==================== -->
+<section id="rotazione">
+  <div class="sec-head">
+    <span class="section-num">04</span>
+    <h2>Rotazione finale</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="note">
+    <span class="mark">✦</span>
+    <div><b>Regola d'oro (Hyperioxes):</b> mantieni attivi tutti i DOT e il debuff, spamma Traveling Knife, e non lasciare mai scadere Critical Surge.</div>
+  </div>
+
+  <p class="kicker" style="margin:24px 0 4px">Pre-buff</p>
+  <ol class="rot">
+    <li><span class="step">0</span><span class="txt"><strong>Critical Surge</strong> → <strong>Hurricane</strong> → <strong>Bound Armaments</strong></span></li>
+  </ol>
+
+  <p class="kicker" style="margin:24px 0 4px">Rotazione principale</p>
+  <ol class="rot">
+    <li><span class="step">1</span><span class="txt"><strong>Elemental Susceptibility</strong></span><span class="cd">ogni 30s</span></li>
+    <li><span class="step">2</span><span class="txt"><strong>Elemental Blockade</strong> (back bar)</span><span class="cd">ogni 10s</span></li>
+    <li><span class="step">3</span><span class="txt"><strong>Barbed Trap</strong></span><span class="cd">ogni 18s</span></li>
+    <li><span class="step">4</span><span class="txt"><strong>Liquid Lightning</strong></span><span class="cd">ogni 10s</span></li>
+    <li><span class="step">5</span><span class="txt"><strong>Traveling Knife</strong> (spammable)</span><span class="cd">tra un DOT e l'altro</span></li>
+    <li><span class="step">6</span><span class="txt"><strong>Ulfsild's Contingency</strong> quando subisci</span><span class="cd">a necessità</span></li>
+    <li><span class="step">7</span><span class="txt"><strong>Power Overload</strong> / <strong>Charged Atronach</strong></span><span class="cd">a ultimate piena</span></li>
+  </ol>
+
+  <div class="note">
+    <span class="mark">⚠</span>
+    <div><b>Errori comuni:</b> lasciare scadere Critical Surge (è la tua cura), dimenticare Elemental Susceptibility sul boss (è un -5.9k di resistenze per te e il gruppo), sprecare lo scudo quando non serve.</div>
+  </div>
+</section>
+
+<!-- ==================== GEAR ==================== -->
+<section id="gear">
+  <div class="sec-head">
+    <span class="section-num">05</span>
+    <h2>Equipaggiamento</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="note">
+    <span class="mark">★</span>
+    <div><b>Il vero cap è CP160.</b> Prima usa qualsiasi cosa con Magicka trovi. Il setup finale di Hyperioxes (Overland, base) usa <b>Sul-Xan's Torment</b>, <b>Beacon of Oblivion</b>, <b>Slimecraw</b> e <b>Ring of the Pale Order</b>. Se non hai accesso al gear da trial, la versione <b>Crafted</b> usa <b>Tide-Born Wildstalker</b> — funziona benissimo per iniziare.</div>
+  </div>
+
+  <p class="kicker" style="margin:28px 0 4px">Setup finale · Overland (Base) — Hyperioxes U50</p>
+
+  <div class="gear-set">
+    <div class="head">
+      <span class="set-name">Sul-Xan's Torment</span>
+      <span class="pieces">5 pezzi · Trial</span>
+    </div>
+    <div class="src">Rockgrove · Trial</div>
+    <ul class="bonus">
+      <li><b>(2)</b> +657 Spell Critical</li>
+      <li><b>(3)</b> +129 Weapon/Spell Damage</li>
+      <li><b>(4)</b> +657 Spell Critical</li>
+      <li><b>(5)</b> Danni critici aumentati quando il nemico è sotto il 50% di salute</li>
+    </ul>
+  </div>
+
+  <div class="gear-set">
+    <div class="head">
+      <span class="set-name">Beacon of Oblivion</span>
+      <span class="pieces">5 pezzi · Arena</span>
+    </div>
+    <div class="src">Maelstrom Arena</div>
+    <ul class="bonus">
+      <li><b>(2)</b> +657 Spell Critical</li>
+      <li><b>(3)</b> +129 Weapon/Spell Damage</li>
+      <li><b>(4)</b> +657 Spell Critical</li>
+      <li><b>(5)</b> Bonus danni con le abilità ad area</li>
+    </ul>
+  </div>
+
+  <div class="gear-set">
+    <div class="head">
+      <span class="set-name">Slimecraw</span>
+      <span class="pieces">1 pezzo · Monster Set</span>
+    </div>
+    <div class="src">Undaunted Chest / Wayrest Sewers I</div>
+    <ul class="bonus">
+      <li><b>(1)</b> +657 Spell Critical</li>
+    </ul>
+  </div>
+
+  <div class="gear-set">
+    <div class="head">
+      <span class="set-name">Ring of the Pale Order</span>
+      <span class="pieces">Mythic · 1 pezzo</span>
+    </div>
+    <div class="src">Antiquities (Scrying)</div>
+    <ul class="bonus">
+      <li><b>(1)</b> +18% danni inflitti, ma non puoi essere curato da altri (perfetto per il solo)</li>
+    </ul>
+  </div>
+
+  <p class="kicker" style="margin:32px 0 4px">Composizione completa — Overland (Base)</p>
+  <table>
+    <thead><tr><th>Pezzo</th><th>Set</th><th>Peso</th><th>Trait</th><th>Enchant</th></tr></thead>
+    <tbody>
+      <tr><td><b>Testa</b></td><td>Slimecraw</td><td>Medium</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Spalle</b></td><td>Beacon of Oblivion</td><td>Light</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Petto</b></td><td>Sul-Xan's Torment</td><td>Medium</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Mani</b></td><td>Beacon of Oblivion</td><td>Light</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Cintura</b></td><td>Beacon of Oblivion</td><td>Light</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Gambe</b></td><td>Beacon of Oblivion</td><td>Medium</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Piedi</b></td><td>Beacon of Oblivion</td><td>Light</td><td><span class="trait divines">Divines</span></td><td>Max Magicka</td></tr>
+      <tr><td><b>Collana</b></td><td>Sul-Xan's Torment</td><td>—</td><td><span class="trait">Bloodthirsty</span></td><td>Spell Damage</td></tr>
+      <tr><td><b>Anello 1</b></td><td>Sul-Xan's Torment</td><td>—</td><td><span class="trait">Bloodthirsty</span></td><td>Spell Damage</td></tr>
+      <tr><td><b>Anello 2</b></td><td>Ring of the Pale Order</td><td>—</td><td><span class="trait">Bloodthirsty</span></td><td>Spell Damage</td></tr>
+      <tr><td><b>Front — Dagger 1</b></td><td>Sul-Xan's Torment</td><td>Dagger</td><td><span class="trait">Charged</span></td><td>Poison</td></tr>
+      <tr><td><b>Front — Dagger 2</b></td><td>Sul-Xan's Torment</td><td>Dagger</td><td><span class="trait">Charged</span></td><td>Flame</td></tr>
+      <tr><td><b>Back — Staff</b></td><td>Crushing Wall</td><td>Lightning</td><td><span class="trait infused">Infused</span></td><td>Weapon Damage</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <span class="mark">⚖</span>
+    <div><b>Mix armatura:</b> 3 Light + 3 Medium + 1 Medium (testa) per il passivo <b>Undaunted Mettle</b>. Il set <b>Crushing Wall</b> sulla back bar è il motivo per cui Elemental Blockade fa così male.</div>
+  </div>
+
+  <div class="note">
+    <span class="mark">◆</span>
+    <div><b>Versione Crafted (budget):</b> sostituisci Sul-Xan + Beacon con <b>Tide-Born Wildstalker</b> (craftabile) + <b>Slimecraw</b> + <b>Ring of the Pale Order</b> + un <b>Lightning Staff</b> qualsiasi Infused. È la build per iniziare a CP160.</div>
+  </div>
+</section>
+
+<!-- ==================== CP ==================== -->
+<section id="cp">
+  <div class="sec-head">
+    <span class="section-num">06</span>
+    <h2>Champion Points</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="cp-block warfare">
+    <div class="cp-label">Warfare · Danno</div>
+    <div class="cp-nodes">
+      <span class="cp-node"><span class="dot red"></span>Master-at-Arms <span style="color:var(--faint);font-size:.85em">· 6% direct</span></span>
+      <span class="cp-node"><span class="dot red"></span>Deadly Aim <span style="color:var(--faint);font-size:.85em">· 6% single-target</span></span>
+      <span class="cp-node"><span class="dot red"></span>Fighting Finesse <span style="color:var(--faint);font-size:.85em">· 8% crit</span></span>
+      <span class="cp-node"><span class="dot red"></span>Wrathful Strikes <span style="color:var(--faint);font-size:.85em">· 205 dmg</span></span>
+    </div>
+  </div>
+
+  <div class="cp-block fitness">
+    <div class="cp-label">Fitness · Sopravvivenza</div>
+    <div class="cp-nodes">
+      <span class="cp-node"><span class="dot green"></span>Boundless Vitality <span style="color:var(--faint);font-size:.85em">· 1400 HP</span></span>
+      <span class="cp-node"><span class="dot green"></span>Siphoning Spells <span style="color:var(--faint);font-size:.85em">· magicka on kill</span></span>
+      <span class="cp-node"><span class="dot green"></span>Rejuvenation <span style="color:var(--faint);font-size:.85em">· recovery</span></span>
+      <span class="cp-node"><span class="dot green"></span>Fortified <span style="color:var(--faint);font-size:.85em">· resistenze</span></span>
+    </div>
+  </div>
+
+  <div class="cp-block craft">
+    <div class="cp-label">Craft · Utility</div>
+    <div class="cp-nodes">
+      <span class="cp-node"><span class="dot blue"></span>Steed's Blessing <span style="color:var(--faint);font-size:.85em">· 20% velocità fuori combattimento</span></span>
+      <span class="cp-node"><span class="dot blue"></span>+ qualsiasi QoL preferisci</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="mark">⚖</span>
+    <div><b>Nota Hyperioxes:</b> per contenuti difficili sostituisci <b>Fighting Finesse</b> e <b>Wrathful Strikes</b> con CP di mitigazione (<b>Ironclad</b>, <b>Duelist's Rebuff</b>, <b>Enduring Resolve</b>, <b>Unassailable</b>).</div>
+  </div>
+</section>
+
+<!-- ==================== TIPS ==================== -->
+<section id="consigli">
+  <div class="sec-head">
+    <span class="section-num">07</span>
+    <h2>Consigli di livellamento</h2>
+    <div class="rule"></div>
+  </div>
+
+  <ul class="tips">
+    <li><span class="ico">📜</span><div><b>Storia principale</b> — tanto XP e ti porta attraverso tutte le zone.</div></li>
+    <li><span class="ico">🏰</span><div><b>Daily Dungeon</b> — una al giorno dal Group Finder, bonus XP enorme.</div></li>
+    <li><span class="ico">📚</span><div><b>Lorebook</b> — raccoglili per le abilità Mages Guild.</div></li>
+    <li><span class="ico">⚓</span><div><b>Dark Anchor</b> — XP e abilità Fighters Guild.</div></li>
+    <li><span class="ico">👥</span><div><b>Unisciti a una guild</b> — bonus XP e compagnia per i contenuti.</div></li>
+    <li><span class="ico">🎯</span><div><b>CP160 è il vero cap</b> — non fermarti al 50, il gear endgame parte da CP160.</div></li>
+    <li><span class="ico">⚡</span><div><b>Dopo il 50</b> — continua i CP fino a 160, poi prendi l'equipaggiamento sul serio.</div></li>
+    <li><span class="ico">🎪</span><div><b>Eventi XP</b> — Witches Festival, New Life Festival e simili.</div></li>
+    <li><span class="ico">🏃</span><div><b>Wayshrine</b> — attivale tutte per viaggio rapido e XP bonus.</div></li>
+  </ul>
+
+  <div class="note">
+    <span class="mark">⚠</span>
+    <div><b>Attenzione:</b> non sprecare oro in equipaggiamento prima di CP160. Concentrati su skill points e lorebook.</div>
+  </div>
+</section>
+
+<!-- ==================== RAZZA ==================== -->
+<section id="razza">
+  <div class="sec-head">
+    <span class="section-num">08</span>
+    <h2>Scelta della razza</h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="race">
+    <div class="card best">
+      <div class="r-icon">👑</div>
+      <div class="r-name">High Elf</div>
+      <div class="r-tag">Migliore</div>
+      <ul class="r-list">
+        <li><b>+2584</b> Max Magicka</li>
+        <li><b>+258</b> Spell Damage</li>
+        <li><b>−10%</b> costo abilità stamina</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="r-icon">🔥</div>
+      <div class="r-name">Dark Elf</div>
+      <div class="r-tag">Ottima alternativa</div>
+      <ul class="r-list">
+        <li><b>+1910</b> Max Magicka</li>
+        <li><b>+1910</b> Max Stamina</li>
+        <li><b>+258</b> Spell / Weapon Damage</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="r-icon">❄️</div>
+      <div class="r-name">Breton</div>
+      <div class="r-tag">Buona sustain</div>
+      <ul class="r-list">
+        <li><b>+2584</b> Max Magicka</li>
+        <li><b>−10%</b> costo magicka</li>
+        <li><b>+resistenza</b> magica</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="mark">✦</span>
+    <div><b>Consiglio:</b> Breton se sei nuovo (più semplice), High Elf per il massimo danno, Dark Elf per la flessibilità magicka/stamina.</div>
+  </div>
+</section>
+
+<footer>
+  <p>Sorcerer Magicka · Guida di livellamento — ESO Update 50 (2026)</p>
+  <p style="margin-top:6px">Progetto non ufficiale. Elder Scrolls Online è un marchio di ZeniMax Media Inc.</p>
+</footer>
+
+</div>
+</body>
+</html>
