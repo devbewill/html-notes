@@ -25,13 +25,13 @@ body{
   font-family:'Inter',system-ui,sans-serif;
   background:var(--paper);
   color:var(--ink);
-  line-height:1.7;
-  font-size:15px;
+  line-height:1.5;
+  font-size:14px;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--accent);color:#fff}
-.wrap{max-width:760px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
 
 /* ---------- typography ---------- */
 .kicker{
@@ -50,7 +50,7 @@ body{
 }
 
 /* ---------- header ---------- */
-header{padding:64px 0 40px;border-bottom:1px solid var(--hairline)}
+header{padding:42px 0 28px;border-bottom:1px solid var(--hairline)}
 header .kicker{margin-bottom:20px}
 header h1{
   font-family:'Fraunces',serif;
@@ -68,10 +68,10 @@ header .meta{
 }
 
 /* ---------- section skeleton ---------- */
-section{padding:56px 0;border-bottom:1px solid var(--hairline)}
+section{padding:32px 0;border-bottom:1px solid var(--hairline)}
 .sec-head{
   display:flex;align-items:baseline;gap:16px;
-  margin-bottom:32px;
+  margin-bottom:20px;
 }
 .sec-head h2{
   font-family:'Fraunces',serif;font-weight:500;
@@ -107,7 +107,7 @@ section{padding:56px 0;border-bottom:1px solid var(--hairline)}
 /* ---------- skill row ---------- */
 .skill{
   display:flex;align-items:flex-start;gap:18px;
-  padding:22px 0;border-bottom:1px solid var(--hairline);
+  padding:13px 0;border-bottom:1px solid var(--hairline);
 }
 .skill:last-child{border-bottom:none}
 .skill .icon{
@@ -228,6 +228,8 @@ tr:last-child td{border-bottom:1px solid var(--ink)}
 .tips .ico{flex-shrink:0;font-size:15px;line-height:1.6}
 .tips b{color:var(--ink);font-weight:700}
 
+.source-link{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}.source-link:hover{color:var(--ink)}
+
 /* ---------- legend ---------- */
 .legend{
   padding:18px 0;margin-bottom:8px;border-bottom:1px solid var(--hairline);
@@ -264,7 +266,7 @@ tr:last-child td{border-bottom:1px solid var(--ink)}
 
 /* ---------- progression cluster ---------- */
 .cluster{
-  padding:28px 0;border-bottom:1px solid var(--hairline);
+  padding:18px 0;border-bottom:1px solid var(--hairline);
 }
 .cluster:last-child{border-bottom:none}
 .cluster .c-head{
@@ -341,7 +343,7 @@ footer p{font-size:12px;color:var(--faint)}
 <header>
   <div class="kicker">Elder Scrolls Online · Update 50</div>
   <h1>Sorcerer<br><em>Magicka</em> DPS</h1>
-  <p class="sub">Guida di livellamento da 1 a CP160, verso la build <b>Solo Magicka Sorcerer di Hyperioxes</b> (Update 50): niente pet, dual wield daggers davanti, DOT e sustain da Critical Surge. Fonte: hyperioxes.com/eso/solo/magicka-sorcerer-build</p>
+  <p class="sub">Guida di livellamento da 1 a CP160, verso la build <b>Solo Magicka Sorcerer di Hyperioxes</b> (Update 50): niente pet, dual wield daggers davanti, DOT e sustain da Critical Surge. Fonte: <a class="source-link" href="https://hyperioxes.com/eso/solo/magicka-sorcerer-build" target="_blank" rel="noopener">guida Solo Magicka Sorcerer di Hyperioxes ↗</a></p>
   <div class="meta">
     <span>Livello 1 → CP160</span>
     <span>PvE · Solo</span>
