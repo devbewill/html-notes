@@ -245,6 +245,7 @@ tr:last-child td{border-bottom:1px solid var(--ink)}
 .legend .legend-items>span{display:flex;align-items:center;gap:8px}
 
 .source-link{color:var(--accent);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}.source-link:hover{color:var(--ink)}
+.skill-inline-icon{display:inline-block;width:18px;height:18px;vertical-align:-4px;margin-right:6px;border-radius:2px;border:1px solid var(--hairline);object-fit:cover}.c-list .skill-inline-icon{width:20px;height:20px;vertical-align:-6px}.rot .skill-inline-icon{width:20px;height:20px;vertical-align:-5px}
 /* ---------- fixed section selector ---------- */
 .section-jump{position:fixed;right:24px;top:24px;z-index:20;border:1px solid var(--hairline);background:rgba(251,251,249,.96);color:var(--ink);font:10px Inter,system-ui,sans-serif;text-transform:uppercase;letter-spacing:.08em;padding:9px 30px 9px 10px;min-width:150px;outline:0;cursor:pointer}.section-jump:focus{border-color:var(--accent)}
 .priority-skill-icon{width:26px;height:26px;border-radius:3px;overflow:hidden;border:1px solid var(--hairline);display:block;flex-shrink:0}.priority-skill-icon img{width:100%;height:100%;display:block;object-fit:cover}
@@ -579,9 +580,9 @@ footer p{font-size:12px;color:var(--faint)}
     </ul>
     <div class="c-rot-label">Rotazione · livello 1–15</div>
     <ol class="c-rot">
-      <li><span class="n">1</span><span><strong>Critical Surge</strong> (pre-buff)</span></li>
-      <li><span class="n">2</span><span><strong>Lightning Splash</strong></span></li>
-      <li><span class="n">3</span><span><strong>Crystal Fragments</strong> (spamma, meglio se procca)</span></li>
+      <li><span class="n">1</span><span><img class="skill-inline-icon" src="assets/critical-surge.webp" alt="Critical Surge"><strong>Critical Surge</strong> (pre-buff)</span></li>
+      <li><span class="n">2</span><span><img class="skill-inline-icon" src="assets/liquid-lightning.webp" alt="Lightning Splash"><strong>Lightning Splash</strong></span></li>
+      <li><span class="n">3</span><span><img class="skill-inline-icon" src="assets/crystal-fragments.webp" alt="Crystal Fragments"><strong>Crystal Fragments</strong> (spamma, meglio se procca)</span></li>
       <li><span class="n">4</span><span><strong>Heavy Attack</strong> con lo staff quando serve magicka</span></li>
     </ol>
     <div class="c-weapon">
@@ -605,15 +606,15 @@ footer p{font-size:12px;color:var(--faint)}
       <li><b>6.</b> Morph di Wall of Elements → Elemental Blockade (liv. 20)</li>
       <li><b>7.</b> Overload → Power Overload (ultimate, liv. 20)</li>
       <li><b>8.</b> Morph di Weakness to Elements → Elemental Susceptibility (liv. 22)</li>
-      <li><b>9.</b> <b>Scribing</b>: se hai la quest disponibile, sblocca <b>Traveling Knife</b> (Magic + Assassin's Misery + Berserk)</li>
+      <li><b>9.</b> <b>Scribing</b>: se hai la quest disponibile, sblocca <img class="skill-inline-icon" src="assets/traveling-knife.webp" alt="Traveling Knife"><b>Traveling Knife</b> (Magic + Assassin's Misery + Berserk)</li>
     </ul>
     <div class="c-rot-label">Rotazione · livello 15–30</div>
     <ol class="c-rot">
-      <li><span class="n">0</span><span><strong>Critical Surge</strong> + <strong>Hurricane</strong> (pre-buff)</span></li>
-      <li><span class="n">1</span><span><strong>Elemental Blockade</strong> (back bar)</span></li>
-      <li><span class="n">2</span><span><strong>Elemental Susceptibility</strong> sul bersaglio</span></li>
-      <li><span class="n">3</span><span><strong>Liquid Lightning</strong></span></li>
-      <li><span class="n">4</span><span><strong>Traveling Knife</strong> o <strong>Crystal Fragments</strong> (spammable)</span></li>
+      <li><span class="n">0</span><span><img class="skill-inline-icon" src="assets/critical-surge.webp" alt="Critical Surge"><strong>Critical Surge</strong> + <img class="skill-inline-icon" src="assets/hurricane.webp" alt="Hurricane"><strong>Hurricane</strong> (pre-buff)</span></li>
+      <li><span class="n">1</span><span><img class="skill-inline-icon" src="assets/elemental-blockade.webp" alt="Elemental Blockade"><strong>Elemental Blockade</strong> (back bar)</span></li>
+      <li><span class="n">2</span><span><img class="skill-inline-icon" src="assets/elemental-susceptibility.webp" alt="Elemental Susceptibility"><strong>Elemental Susceptibility</strong> sul bersaglio</span></li>
+      <li><span class="n">3</span><span><img class="skill-inline-icon" src="assets/liquid-lightning.webp" alt="Liquid Lightning"><strong>Liquid Lightning</strong></span></li>
+      <li><span class="n">4</span><span><img class="skill-inline-icon" src="assets/traveling-knife.webp" alt="Traveling Knife"><strong>Traveling Knife</strong> o <img class="skill-inline-icon" src="assets/crystal-fragments.webp" alt="Crystal Fragments"><strong>Crystal Fragments</strong> (spammable)</span></li>
       <li><span class="n">5</span><span><strong>Hardened Ward</strong> quando subisci danni</span></li>
     </ol>
     <div class="c-weapon">
@@ -629,21 +630,21 @@ footer p{font-size:12px;color:var(--faint)}
     </div>
     <div class="c-skill">Skill da sbloccare</div>
     <ul class="c-list">
-      <li><b>1.</b> Barbed Trap (Fighters Guild) — Minor Force per il danno critico</li>
-      <li><b>2.</b> <b>Ulfsild's Contingency</b> (Scribing: Magic + Shock + Leech) — sostituisce Hardened Ward</li>
-      <li><b>3.</b> Summon Storm Atronach → Charged Atronach (ultimate back bar, liv. ~40)</li>
-      <li><b>4.</b> Bound Armor → Bound Armaments (slot passivo)</li>
+      <li><b>1.</b> <img class="skill-inline-icon" src="assets/barbed-trap.webp" alt="Barbed Trap">Barbed Trap (Fighters Guild) — Minor Force per il danno critico</li>
+      <li><b>2.</b> <img class="skill-inline-icon" src="assets/ulfsild-s-contingency.webp" alt="Ulfsild's Contingency"><b>Ulfsild's Contingency</b> (Scribing: Magic + Shock + Leech) — sostituisce Hardened Ward</li>
+      <li><b>3.</b> Summon Storm Atronach → <img class="skill-inline-icon" src="assets/summon-charged-atronach.webp" alt="Charged Atronach">Charged Atronach (ultimate back bar, liv. ~40)</li>
+      <li><b>4.</b> Bound Armor → <img class="skill-inline-icon" src="assets/bound-armaments.webp" alt="Bound Armaments">Bound Armaments (slot passivo)</li>
       <li><b>5.</b> Al 50: iniziano i Champion Points — priorità Warfare (Master-at-Arms, Deadly Aim)</li>
     </ul>
     <div class="c-rot-label">Rotazione · livello 30–50 (forma finale)</div>
     <ol class="c-rot">
-      <li><span class="n">0</span><span><strong>Critical Surge</strong> + <strong>Hurricane</strong> + <strong>Bound Armaments</strong></span></li>
-      <li><span class="n">1</span><span><strong>Elemental Susceptibility</strong> (debuff)</span></li>
-      <li><span class="n">2</span><span><strong>Elemental Blockade</strong> + <strong>Barbed Trap</strong> (back bar)</span></li>
-      <li><span class="n">3</span><span><strong>Liquid Lightning</strong></span></li>
-      <li><span class="n">4</span><span><strong>Traveling Knife</strong> (spammable)</span></li>
-      <li><span class="n">5</span><span><strong>Ulfsild's Contingency</strong> quando subisci</span></li>
-      <li><span class="n">6</span><span><strong>Power Overload</strong> o <strong>Charged Atronach</strong> a ultimate piena</span></li>
+      <li><span class="n">0</span><span><img class="skill-inline-icon" src="assets/critical-surge.webp" alt="Critical Surge"><strong>Critical Surge</strong> + <img class="skill-inline-icon" src="assets/hurricane.webp" alt="Hurricane"><strong>Hurricane</strong> + <img class="skill-inline-icon" src="assets/bound-armaments.webp" alt="Bound Armaments"><strong>Bound Armaments</strong></span></li>
+      <li><span class="n">1</span><span><img class="skill-inline-icon" src="assets/elemental-susceptibility.webp" alt="Elemental Susceptibility"><strong>Elemental Susceptibility</strong> (debuff)</span></li>
+      <li><span class="n">2</span><span><img class="skill-inline-icon" src="assets/elemental-blockade.webp" alt="Elemental Blockade"><strong>Elemental Blockade</strong> + <img class="skill-inline-icon" src="assets/barbed-trap.webp" alt="Barbed Trap"><strong>Barbed Trap</strong> (back bar)</span></li>
+      <li><span class="n">3</span><span><img class="skill-inline-icon" src="assets/liquid-lightning.webp" alt="Liquid Lightning"><strong>Liquid Lightning</strong></span></li>
+      <li><span class="n">4</span><span><img class="skill-inline-icon" src="assets/traveling-knife.webp" alt="Traveling Knife"><strong>Traveling Knife</strong> (spammable)</span></li>
+      <li><span class="n">5</span><span><img class="skill-inline-icon" src="assets/ulfsild-s-contingency.webp" alt="Ulfsild's Contingency"><strong>Ulfsild's Contingency</strong> quando subisci</span></li>
+      <li><span class="n">6</span><span><img class="skill-inline-icon" src="assets/power-overload.webp" alt="Power Overload"><strong>Power Overload</strong> o <img class="skill-inline-icon" src="assets/summon-charged-atronach.webp" alt="Charged Atronach"><strong>Charged Atronach</strong> a ultimate piena</span></li>
     </ol>
     <div class="c-weapon">
       <span class="w-ico">⚔</span>
@@ -667,18 +668,18 @@ footer p{font-size:12px;color:var(--faint)}
 
   <p class="kicker" style="margin:24px 0 4px">Pre-buff</p>
   <ol class="rot">
-    <li><span class="step">0</span><span class="txt"><strong>Critical Surge</strong> → <strong>Hurricane</strong> → <strong>Bound Armaments</strong></span></li>
+    <li><span class="step">0</span><span class="txt"><img class="skill-inline-icon" src="assets/critical-surge.webp" alt="Critical Surge"><strong>Critical Surge</strong> → <img class="skill-inline-icon" src="assets/hurricane.webp" alt="Hurricane"><strong>Hurricane</strong> → <img class="skill-inline-icon" src="assets/bound-armaments.webp" alt="Bound Armaments"><strong>Bound Armaments</strong></span></li>
   </ol>
 
   <p class="kicker" style="margin:24px 0 4px">Rotazione principale</p>
   <ol class="rot">
-    <li><span class="step">1</span><span class="txt"><strong>Elemental Susceptibility</strong></span><span class="cd">ogni 30s</span></li>
-    <li><span class="step">2</span><span class="txt"><strong>Elemental Blockade</strong> (back bar)</span><span class="cd">ogni 10s</span></li>
-    <li><span class="step">3</span><span class="txt"><strong>Barbed Trap</strong></span><span class="cd">ogni 18s</span></li>
-    <li><span class="step">4</span><span class="txt"><strong>Liquid Lightning</strong></span><span class="cd">ogni 10s</span></li>
-    <li><span class="step">5</span><span class="txt"><strong>Traveling Knife</strong> (spammable)</span><span class="cd">tra un DOT e l'altro</span></li>
-    <li><span class="step">6</span><span class="txt"><strong>Ulfsild's Contingency</strong> quando subisci</span><span class="cd">a necessità</span></li>
-    <li><span class="step">7</span><span class="txt"><strong>Power Overload</strong> / <strong>Charged Atronach</strong></span><span class="cd">a ultimate piena</span></li>
+    <li><span class="step">1</span><span class="txt"><img class="skill-inline-icon" src="assets/elemental-susceptibility.webp" alt="Elemental Susceptibility"><strong>Elemental Susceptibility</strong></span><span class="cd">ogni 30s</span></li>
+    <li><span class="step">2</span><span class="txt"><img class="skill-inline-icon" src="assets/elemental-blockade.webp" alt="Elemental Blockade"><strong>Elemental Blockade</strong> (back bar)</span><span class="cd">ogni 10s</span></li>
+    <li><span class="step">3</span><span class="txt"><img class="skill-inline-icon" src="assets/barbed-trap.webp" alt="Barbed Trap"><strong>Barbed Trap</strong></span><span class="cd">ogni 18s</span></li>
+    <li><span class="step">4</span><span class="txt"><img class="skill-inline-icon" src="assets/liquid-lightning.webp" alt="Liquid Lightning"><strong>Liquid Lightning</strong></span><span class="cd">ogni 10s</span></li>
+    <li><span class="step">5</span><span class="txt"><img class="skill-inline-icon" src="assets/traveling-knife.webp" alt="Traveling Knife"><strong>Traveling Knife</strong> (spammable)</span><span class="cd">tra un DOT e l'altro</span></li>
+    <li><span class="step">6</span><span class="txt"><img class="skill-inline-icon" src="assets/ulfsild-s-contingency.webp" alt="Ulfsild's Contingency"><strong>Ulfsild's Contingency</strong> quando subisci</span><span class="cd">a necessità</span></li>
+    <li><span class="step">7</span><span class="txt"><img class="skill-inline-icon" src="assets/power-overload.webp" alt="Power Overload"><strong>Power Overload</strong> / <img class="skill-inline-icon" src="assets/summon-charged-atronach.webp" alt="Charged Atronach"><strong>Charged Atronach</strong></span><span class="cd">a ultimate piena</span></li>
   </ol>
 
   <div class="note">
