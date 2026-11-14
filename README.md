@@ -11,7 +11,9 @@ A minimal static archive of notes, where each note is a standalone web page.
     ├── magicka-sorcerer/
     │   ├── index.html                 # standalone note
     │   └── assets/                    # note-specific assets
-    └── wow-forever-warlock/
+    ├── wow-forever-warlock/
+    │   └── index.html                 # standalone note
+    └── wow-forever-tailoring/
         └── index.html                 # standalone note
 ```
 
