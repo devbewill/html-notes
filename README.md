@@ -8,9 +8,11 @@ A minimal static archive of notes, where each note is a standalone web page.
 .
 ├── index.html                         # searchable notes index
 └── notes/
-    └── magicka-sorcerer/
-        ├── index.html                 # standalone note
-        └── assets/                    # note-specific assets
+    ├── magicka-sorcerer/
+    │   ├── index.html                 # standalone note
+    │   └── assets/                    # note-specific assets
+    └── wow-forever-warlock/
+        └── index.html                 # standalone note
 ```
 
 No build step is required. Open `index.html` directly or serve the folder with any static web server.

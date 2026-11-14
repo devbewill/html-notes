@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WoW Forever — Warlock e Tailoring · Guida operativa</title>
+<meta name="description" content="Piano operativo per il warlock gnomo su WoW Forever: cosa comprare, cosa craftare e cosa farne, con i prezzi della casa d'asta EU Alliance del 14 novembre 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfbf9;--ink:#131313;--body:#2f2f2f;--muted:#6b6b6b;--faint:#9c9c95;
+  --hairline:#e7e4dc;--surface:#f4f3ee;--accent:#1d7a3f;--accent-soft:#eaf4ec;
+  --warn:#8a5a00;--warn-soft:#faf3e0;
+  --sans:'Inter',system-ui,sans-serif;--serif:'Fraunces',serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+.kicker{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);font-family:var(--mono)}
+header{padding:44px 0 26px;border-bottom:2px solid var(--ink)}
+h1{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.02;font-size:clamp(34px,5.4vw,58px);color:var(--ink);margin:14px 0 14px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{max-width:62ch;color:var(--muted);font-size:16px}
+.stamp{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--hairline);background:#fff;padding:5px 8px;color:var(--muted)}
+.chip b{color:var(--ink);font-weight:500}
+nav.toc{display:flex;flex-wrap:wrap;gap:14px;padding:16px 0;border-bottom:1px solid var(--hairline);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+nav.toc a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+section{padding:34px 0;border-bottom:1px solid var(--hairline)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+h2 span{font-family:var(--mono);font-size:11px;color:var(--faint);vertical-align:middle;margin-right:10px;letter-spacing:.1em}
+h3{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--muted);margin:24px 0 10px}
+p{margin:10px 0;max-width:70ch}
+p.lead{color:var(--ink)}
+strong{font-weight:600;color:var(--ink)}
+code{font-family:var(--mono);font-size:.88em;background:var(--surface);padding:1px 5px;border:1px solid var(--hairline)}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13.5px}
+th{text-align:left;font:10px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:8px 10px 8px 0;border-bottom:1px solid var(--ink)}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
+td.num,th.num{font-family:var(--mono);white-space:nowrap}
+td.n{font-family:var(--mono);color:var(--faint);white-space:nowrap}
+tr.total td{border-bottom:2px solid var(--ink);font-weight:600;color:var(--ink)}
+ul,ol{margin:10px 0 10px 22px;max-width:70ch}
+li{margin:6px 0}
+.box{background:#fff;border:1px solid var(--hairline);border-left:3px solid var(--accent);padding:16px 18px;margin:16px 0}
+.box.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.box .kicker{color:var(--accent);margin-bottom:6px}
+.box.warn .kicker{color:var(--warn)}
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:38px;margin:14px 0}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;font:11px var(--mono);color:var(--accent);border:1px solid var(--accent);padding:3px 6px}
+.pill{display:inline-block;font:10px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border:1px solid var(--hairline);background:#fff;color:var(--muted)}
+.pill.keep{color:var(--accent);border-color:var(--accent)}
+.pill.ah{color:#1f5fa8;border-color:#1f5fa8}
+.pill.vend{color:var(--warn);border-color:var(--warn)}
+footer{padding:34px 0 60px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+@media(max-width:720px){
+  body{font-size:14px}
+  .wrap{padding:0 18px}
+  table{font-size:12.5px}
+  th,td{padding-right:8px}
+  .scroll{overflow-x:auto}
+}
+@media print{nav.toc,footer{display:none}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Personal notes · Gaming · WoW Forever</div>
+  <h1>Warlock e <em>Tailoring</em></h1>
+  <p class="lede">Il piano operativo del mio warlock gnomo su WoW Forever: cosa comprare, cosa craftare e cosa farne dei pezzi, con i prezzi della casa d'asta EU Alliance letti il 14 novembre 2026 alle 08:18 UTC.</p>
+  <div class="stamp">
+    <span class="chip">Personaggio <b>gnomo warlock</b></span>
+    <span class="chip">Fazione <b>Alliance</b></span>
+    <span class="chip">Regione <b>EU</b></span>
+    <span class="chip">Livello <b>20</b></span>
+    <span class="chip">Aggiornata <b>14 nov 2026</b></span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#contesto">Contesto</a>
+  <a href="#comprare">Cosa comprare</a>
+  <a href="#craftare">Cosa craftare</a>
+  <a href="#smaltire">Cosa farne</a>
+  <a href="#regole">Regole</a>
+  <a href="#dopo">Lana e seta</a>
+  <a href="#set">Set Shadow</a>
+  <a href="#farm">Dove farmare</a>
+  <a href="#contorno">Contorno</a>
+</nav>
+
+<section id="contesto">
+  <h2><span>01</span>Perché il tailoring</h2>
+  <p class="lead">Perché il set <strong>Shadow</strong> che mi serve è <strong>BoP crafter-only</strong>: o lo cuco io, o non lo indosso. Non esiste una versione comprabile all'asta.</p>
+  <p>WoW Forever è il Classic+ di Blizzard, live dal 4 novembre 2026, <strong>senza realm</strong>: esiste una casa d'asta per regola + fazione + regione, non per server. L'economia ha poche settimane di vita, quindi i verdi di livello costano copper e le blu costano oro.</p>
+  <div class="box">
+    <div class="kicker">Traguardo</div>
+    <p style="margin:0">Il target utile adesso è <strong>skill 125</strong>: copre tutti i pezzi del set Shadow e costa 554 lino + 116 seta. Il <strong>200 non è un piano da livello 20</strong> — servono ~1.184 seta (mob 25-35) e il mageweave per il 193-205 arriva solo dai mob 40+.</p>
+  </div>
+</section>
+
+<section id="comprare">
+  <h2><span>02</span>Cosa comprare</h2>
+  <p>Prezzi unitari minimi della casa EU Alliance, snapshot <strong>14/11/2026 08:18 UTC</strong>. Il filo costa più del lino: non dimenticarlo.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Cosa</th><th>Dove</th><th class="num">Q.tà</th><th class="num">Prezzo</th><th class="num">Totale</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Linen Cloth</strong></td><td>asta</td><td class="num">150</td><td class="num">26c</td><td class="num">39s</td></tr>
+      <tr><td><strong>Coarse Thread</strong></td><td>vendor sarto</td><td class="num">35</td><td class="num">10c</td><td class="num">3s 50c</td></tr>
+      <tr><td>Training Apprentice</td><td>trainer</td><td class="num">1</td><td class="num">10c</td><td class="num">10c</td></tr>
+      <tr><td>Training Journeyman <span class="pill">skill 50</span></td><td>trainer</td><td class="num">1</td><td class="num">5s</td><td class="num">5s</td></tr>
+      <tr class="total"><td>Totale</td><td></td><td></td><td></td><td class="num">≈ 48s</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>Non</strong> comprare il Bolt of Linen già fatto (54c contro 52c di due panni) e <strong>non</strong> comprare 554 lino: oltre il 55 la lana fa lo stesso lavoro a costo zero se la farmi.</p>
+</section>
+
+<section id="craftare">
+  <h2><span>03</span>Cosa craftare, in ordine</h2>
+  <p>Ricette da trainer, nessun pattern da comprare in questa fase. I numeri includono già i craft a vuoto.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th class="num">Skill</th><th>Ricetta</th><th class="num">Craft</th><th>Materiali</th></tr></thead>
+    <tbody>
+      <tr><td class="n">1 → 32</td><td>Bolt of Linen Cloth</td><td class="num">33</td><td>66 lino</td></tr>
+      <tr><td class="n">32 → 43</td><td>Brown Linen Shirt · Simple Linen Pants</td><td class="num">8 + 5</td><td>13 bolt + 13 coarse</td></tr>
+      <tr><td class="n">43 → 55</td><td>Linen Belt</td><td class="num">22</td><td>22 bolt + 22 coarse</td></tr>
+      <tr><td class="n">55 → 100</td><td>Woolen Cape <span class="pill">trainer 2s50</span></td><td class="num">~68</td><td>~200 lana (1 bolt l'uno)</td></tr>
+      <tr><td class="n">100 → 125</td><td>Bolt of Silk Cloth</td><td class="num">29</td><td>116 seta</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>Mi fermo a 55 con il lino.</strong> Le ricette di lino restano gialle fino a 97-110 (Soft-soled Linen Boots 55-80-97-115, Simple Kilt 50-75-92-110), quindi col solo lino arriverei a ~110: ma sarebbero 554 pezzi e 1g44 buttati per un lavoro che dal 55 fa la lana, che è gratis.</p>
+</section>
+
+<section id="smaltire">
+  <h2><span>04</span>Cosa farne dei pezzi</h2>
+  <p>Regola: mai regalare al vendor un pezzo che all'asta batte il costo dei materiali — e mai riempire l'asta di 20 pezzi uguali, perché la cauzione si mangia il margine.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Pezzo</th><th>Destinazione</th><th class="num">Confronto</th></tr></thead>
+    <tbody>
+      <tr><td>Bolt of Linen / Woolen / Silk</td><td><span class="pill keep">tieni</span> reagenti per il set e per 45 ricette</td><td class="num">—</td></tr>
+      <tr><td>Brown Linen Shirt · Simple Linen Pants</td><td><span class="pill ah">asta</span> a lotti da 2-3, il resto vendor</td><td class="num">7s60 / 4s75 contro 5s28 / 3s30</td></tr>
+      <tr><td>Linen Belt</td><td><span class="pill ah">asta</span> a piccoli lotti, il resto vendor</td><td class="num">~95c contro 67c di costo</td></tr>
+      <tr><td>Reinforced Linen Cape</td><td><span class="pill vend">vendor</span> pari al costo, non vale la cauzione</td><td class="num">36s36 contro 36s08</td></tr>
+      <tr><td>Simple Kilt</td><td><span class="pill vend">vendor</span> è il prezzo della skill</td><td class="num">1s70 contro 3s34</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="regole">
+  <h2><span>05</span>Regole secche</h2>
+  <ol class="steps">
+    <li><strong>La stoffa non si vende e non diventa bende.</strong> La seta che finisce in First Aid è seta che non diventa set.</li>
+    <li><strong>I bolt non sono sprecati:</strong> quelli craftati per salire di skill sono gli stessi che servono come reagenti dopo.</li>
+    <li><strong>Non disincantare niente</strong> (non sono enchanter) e non comprare pattern prima di avere la skill per usarli.</li>
+    <li><strong>Massimo 2-3 pezzi uguali per volta all'asta</strong>: cauzione + sottocosto mangiano il margine.</li>
+    <li><strong>Ciò che non batte il costo materiali va al vendor diretto</strong>, senza pensarci.</li>
+  </ol>
+</section>
+
+<section id="dopo">
+  <h2><span>06</span>Lana e seta: cosa serve</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Materiale</th><th class="num">Quantità</th><th>Da dove</th><th class="num">Se comprato</th></tr></thead>
+    <tbody>
+      <tr><td>Lana (55 → 100)</td><td class="num">~200</td><td>harpie Witchwing nei Barrens (17-22), poi Redridge / Wetlands</td><td class="num">2g 42s</td></tr>
+      <tr><td>Seta (100 → 125)</td><td class="num">116</td><td>mob 25-35: Duskwood, Wetlands, Ashenvale, RFK, BFD</td><td class="num">—</td></tr>
+      <tr><td>Lana per il set</td><td class="num">66</td><td>boots 8 + gown 8 + gloves 6 bolt</td><td class="num">—</td></tr>
+      <tr><td>Seta per il set</td><td class="num">96</td><td>sash + leggings + circlet, 8 bolt ciascuno</td><td class="num">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>La ricetta più efficiente per la lana è <strong>Woolen Cape</strong>: un solo bolt (3 lana) per craft. ~68 craft ≈ 200 lana ≈ una settantina di mob.</p>
+</section>
+
+<section id="set">
+  <h2><span>07</span>Set Shadow: skill e materiali</h2>
+  <p>Tutti BoP: si craftano e si indossano solo se li ha fatti il mio pg. I pattern dei primi tre si comprano con 30 Merchant's Favor dal vendor <strong>Mivin Shadowweave</strong> (Redridge Mountains); gli altri sono drop.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Pezzo</th><th class="num">Skill</th><th>Materiali</th><th>Pattern</th></tr></thead>
+    <tbody>
+      <tr><td>Shadow Boots</td><td class="num">60</td><td>8 Bolt Woolen · 2 Fine Thread · 2 Cerulean Dye · 1 Shadowgem</td><td>30 Favor / Mivin</td></tr>
+      <tr><td>Filigreed Shadow Gown</td><td class="num">75</td><td>8 Bolt Woolen · 4 Fine Thread · 2 Cerulean Dye · 2 Shadowgem</td><td>drop (SFK, RFC)</td></tr>
+      <tr><td>Shadow Gloves</td><td class="num">75</td><td>6 Bolt Woolen · 4 Fine Thread · 3 Cerulean Dye · 2 Shadowgem</td><td>30 Favor / Mivin</td></tr>
+      <tr><td>Shadow Sash</td><td class="num">85</td><td>8 Bolt Silk · 4 Fine Thread · 3 Cerulean Dye · 3 Shadowgem</td><td>30 Favor / Mivin</td></tr>
+      <tr><td>Filigreed Shadow Leggings</td><td class="num">100</td><td>8 Bolt Silk · 4 Fine Thread · 2 Cerulean Dye · 4 Shadowgem</td><td>drop (BFD)</td></tr>
+      <tr><td>Filigreed Shadow Circlet</td><td class="num">125</td><td>8 Bolt Silk · 4 Fine Thread · 2 Cerulean Dye · 6 Shadowgem</td><td>drop (BFD)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="box warn">
+    <div class="kicker">Da comprare a parte</div>
+    <p style="margin:0"><strong>Shadowgem</strong> (vene di rame/stagno e drop) e <strong>Cerulean Dye</strong> (vendor sarto) sono gli unici due acquisti obbligatori. Si comprano quando la skill per il pezzo è già lì, non prima.</p>
+  </div>
+</section>
+
+<section id="farm">
+  <h2><span>08</span>Dove farmare la stoffa</h2>
+  <p>Regola secca: <strong>solo umanoidi</strong>. Bestie, non-morti, elementali e demoni non droppano stoffa. Quilboar, centauri, harpie, gnoll, orchi, satiri, naga, furbolg, ogre, worgen e pirati sì.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Stoffa</th><th class="num">Livello mob</th><th>Zone (Alliance)</th><th class="num">Serve per</th></tr></thead>
+    <tbody>
+      <tr><td>Linen</td><td class="num">5-15</td><td>Dun Morogh, Elwynn, Westfall, Loch Modan</td><td class="num">1 → 100</td></tr>
+      <tr><td>Wool</td><td class="num">14-25</td><td>Barrens (harpie 17-22), Redridge, Wetlands, Duskwood</td><td class="num">60 → 100</td></tr>
+      <tr><td>Silk</td><td class="num">25-35</td><td>Duskwood (ogre, worgen), Wetlands (Dragonmaw), Ashenvale, Thousand Needles, RFK, BFD</td><td class="num">100 → 193</td></tr>
+      <tr><td>Mageweave</td><td class="num">40-50</td><td>Tanaris, Feralas, Hinterlands, Razorfen Downs</td><td class="num">193 → 225</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Errore da non fare: grindare i quilboar Bristleback nei Barrens «per la stoffa». Sono 11-18, a livello 20 la exp è quasi zero e la lana non vale il tempo.</p>
+</section>
+
+<section id="contorno">
+  <h2><span>09</span>Il contorno: cosa non dimenticare</h2>
+  <h3>Armi in arrivo</h3>
+  <ul>
+    <li><strong>Golemheart Stave</strong> — Hall of Thanes, dal boss Plunder: staff 2H, +18 spell power (il tooltip in game, non il datamine). Batte qualunque cosa comprabile.</li>
+    <li><strong>Staff of Soran'ruk</strong> — quest «The Orb of Soran'ruk» da <strong>Doan Karhan, Barrens 49.2/57.2</strong>: 3 Soran'ruk Fragment dai Twilight Acolyte (BFD o Zoram'gar Strand) + 1 Large da Shadowfang Darksoul (SFK). Prendo la staff, non l'orb.</li>
+    <li><strong>Gravestone Scepter</strong> — quest «Blackfathom Villainy»: 29 dps, la bacchetta migliore prima del 30.</li>
+  </ul>
+  <h3>Quest di classe al 20</h3>
+  <p>Le due quest stanno nello stesso campo di tende a <strong>nord-est di Camp Taurajo, The Barrens (~49, 57)</strong>: <strong>Takar the Seer</strong> per la catena succubus/incubus (via Gakin a Stormwind e Heartswood in Ashenvale ~31,31) e <strong>Doan Karhan</strong> per la staff. Takar è ostile: non attaccarlo. I Barrens sono territorio Horde, meglio in gruppo.</p>
+  <h3>Danno: le tre cose che contano</h3>
+  <ul>
+    <li>Sotto il 30 il filler è <strong>la bacchetta</strong>, non Shadow Bolt: DoT e poi wand.</li>
+    <li><strong>Improved Corruption 5/5</strong> (livello 10) rende Corruption istantanea: servono tutti e cinque i punti.</li>
+    <li>Pesi stat: spell power = shadow damage 1 · int 0,3 · sta 0,2 · spirit 0,15. Crit e hit sotto il 40 non contano.</li>
+  </ul>
+</section>
+
+<footer>
+  <span>Prezzi: casa EU Alliance · snapshot 14/11/2026 08:18 UTC · rinfrescare prima di ogni spesa</span>
+  <span><a href="../../">← indice note</a> · <a href="https://github.com/devbewill/html-notes">GitHub ↗</a></span>
+</footer>
+
+</div>
+</body>
+</html>
