@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WoW Forever — Warlock: livellamento, pezzi e skill</title>
-<meta name="description" content="Warlock gnomo su WoW Forever: cosa premere, quali talenti, quali pezzi indossare, che armi prendere e quali quest e dungeon fare dal 20 al 25.">
+<title>Warlock gnomo — guida di livellamento 20-30 · WoW Forever</title>
+<meta name="description" content="Guida di livellamento del warlock gnomo su WoW Forever dal 20 al 30: talenti, skill dal trainer, zone, pezzi da quest e world drop (esclusi quelli da tailoring), armi, dungeon e checklist.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,20 +12,24 @@
 :root{
   --paper:#fbfbf9;--ink:#131313;--body:#2f2f2f;--muted:#6b6b6b;--faint:#9c9c95;
   --hairline:#e7e4dc;--surface:#f4f3ee;--accent:#6c3df4;--accent-soft:#f1ecff;
-  --warn:#8a5a00;--warn-soft:#faf3e0;
+  --warn:#8a5a00;--warn-soft:#faf3e0;--green:#1d7a3f;--green-soft:#eaf4ec;
   --sans:'Inter',system-ui,sans-serif;--serif:'Fraunces',serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--accent);color:#fff}
-.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
 a{color:inherit}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0 0;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em}
+.topbar a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px}
+.topbar a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.topbar .home{color:var(--ink);border-bottom:1px solid var(--ink)}
 .kicker{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);font-family:var(--mono)}
-header{padding:44px 0 26px;border-bottom:2px solid var(--ink)}
+header{padding:26px 0 26px;border-bottom:2px solid var(--ink)}
 h1{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.02;font-size:clamp(34px,5.4vw,58px);color:var(--ink);margin:14px 0 14px}
 h1 em{font-style:normal;color:var(--accent)}
-.lede{max-width:62ch;color:var(--muted);font-size:16px}
+.lede{max-width:64ch;color:var(--muted);font-size:16px}
 .stamp{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .chip{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--hairline);background:#fff;padding:5px 8px;color:var(--muted)}
 .chip b{color:var(--ink);font-weight:500}
@@ -36,219 +40,300 @@ section{padding:34px 0;border-bottom:1px solid var(--hairline)}
 h2{font-family:var(--serif);font-weight:500;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
 h2 span{font-family:var(--mono);font-size:11px;color:var(--faint);vertical-align:middle;margin-right:10px;letter-spacing:.1em}
 h3{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-family:var(--mono);color:var(--muted);margin:24px 0 10px}
-p{margin:10px 0;max-width:70ch}
+p{margin:10px 0;max-width:72ch}
 p.lead{color:var(--ink)}
 strong{font-weight:600;color:var(--ink)}
-code{font-family:var(--mono);font-size:.88em;background:var(--surface);padding:1px 5px;border:1px solid var(--hairline)}
 table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13.5px}
 th{text-align:left;font:10px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:8px 10px 8px 0;border-bottom:1px solid var(--ink)}
 td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
 td.num,th.num{font-family:var(--mono);white-space:nowrap}
 td.n{font-family:var(--mono);color:var(--faint);white-space:nowrap}
-ul,ol{margin:10px 0 10px 22px;max-width:70ch}
+ul,ol{margin:10px 0 10px 22px;max-width:72ch}
 li{margin:6px 0}
 .box{background:#fff;border:1px solid var(--hairline);border-left:3px solid var(--accent);padding:16px 18px;margin:16px 0}
 .box.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.box.green{border-left-color:var(--green);background:var(--green-soft)}
 .box .kicker{color:var(--accent);margin-bottom:6px}
 .box.warn .kicker{color:var(--warn)}
+.box.green .kicker{color:var(--green)}
 .steps{counter-reset:s;list-style:none;margin-left:0}
 .steps li{counter-increment:s;position:relative;padding-left:38px;margin:14px 0}
 .steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;font:11px var(--mono);color:var(--accent);border:1px solid var(--accent);padding:3px 6px}
 .pill{display:inline-block;font:10px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border:1px solid var(--hairline);background:#fff;color:var(--muted)}
-.pill.vend{color:var(--warn);border-color:var(--warn)}
-.pill.keep{color:var(--accent);border-color:var(--accent)}
+.pill.q{color:var(--accent);border-color:var(--accent)}
+.pill.drop{color:#a3232f;border-color:#a3232f}
+.pill.tail{color:var(--green);border-color:var(--green)}
+.pill.no{color:var(--warn);border-color:var(--warn)}
+/* decade block */
+.block{border:1px solid var(--hairline);background:#fff;margin:20px 0;padding:0}
+.block-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 18px;border-bottom:1px solid var(--hairline);background:var(--surface)}
+.block-head .range{font-family:var(--serif);font-size:24px;color:var(--ink);letter-spacing:-.01em}
+.block-head .state{font:10px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.block-head .state.live{color:var(--accent)}
+.block-body{padding:6px 18px 18px}
+.block.draft{background:#fcfcfa;border-style:dashed}
+.block.draft .block-body p{color:var(--muted)}
 .crosslink{display:inline-block;margin-top:8px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid var(--ink);color:var(--ink)}
 footer{padding:34px 0 60px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
 footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
 @media(max-width:720px){
   body{font-size:14px}.wrap{padding:0 18px}
   table{font-size:12.5px}th,td{padding-right:8px}.scroll{overflow-x:auto}
+  .block-head{display:block}.block-head .state{display:block;margin-top:4px}
 }
-@media print{nav.toc,footer{display:none}section{break-inside:avoid}}
+@media print{nav.toc,footer,.topbar{display:none}section,.block{break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+<div class="topbar">
+  <a class="home" href="../../">← html notes</a>
+  <a href="../wow-forever-tailoring/">Tailoring →</a>
+</div>
+
 <header>
-  <div class="kicker">Personal notes · Gaming · WoW Forever</div>
-  <h1>Warlock: <em>livellamento</em></h1>
-  <p class="lede">Cosa premere, che talenti prendere, quali pezzi indossare, che armi cercare e quali quest e dungeon fare. Gnomo warlock, Alliance, EU — livello 20 al 14 novembre 2026.</p>
+  <div class="kicker">Personal notes · Gaming · WoW Forever · Guida di livellamento</div>
+  <h1>Warlock gnomo: <em>20 → 30</em></h1>
+  <p class="lede">Un blocco per decade di livelli: talenti punto per punto, skill da comprare al trainer, dove andare, quali pezzi cacciare da quest e world drop (esclusi quelli che mi curo col tailoring), armi, dungeon e checklist. La struttura resta la stessa, cambia solo il blocco.</p>
   <div class="stamp">
     <span class="chip">Personaggio <b>gnomo warlock</b></span>
     <span class="chip">Fazione <b>Alliance</b></span>
     <span class="chip">Regione <b>EU</b></span>
     <span class="chip">Livello <b>20</b></span>
+    <span class="chip">Blocco attivo <b>20-30</b></span>
     <span class="chip">Aggiornata <b>14 nov 2026</b></span>
   </div>
 </header>
 
 <nav class="toc">
-  <a href="#danno">Danno</a>
-  <a href="#skill">Skill e talenti</a>
-  <a href="#pezzi">Pezzi</a>
+  <a href="#rotazione">Come si gioca</a>
+  <a href="#talenti">Talenti</a>
+  <a href="#skill">Skill</a>
+  <a href="#blocchi">Blocchi 10 livelli</a>
+  <a href="#zone">Zone 20-30</a>
+  <a href="#pezzi">Pezzi da cacciare</a>
   <a href="#armi">Armi</a>
-  <a href="#quest">Quest 20</a>
+  <a href="#tailoring">Tailoring in parallelo</a>
   <a href="#dungeon">Dungeon</a>
-  <a href="#ordine">Ordine</a>
+  <a href="#checklist">Checklist</a>
 </nav>
 
-<section id="danno">
-  <h2><span>01</span>Perché il danno sembra basso</h2>
-  <p class="lead">Con la rotazione giusta il danno è comunque distribuito: sotto il 30 il warlock non ha un colpo grosso, ha tre cose che si sommano. Se una manca, si sente.</p>
+<section id="rotazione">
+  <h2><span>01</span>Come si gioca (vale a ogni livello)</h2>
   <div class="scroll">
   <table>
     <thead><tr><th>Leva</th><th>Regola</th></tr></thead>
     <tbody>
-      <tr><td><strong>Bacchetta</strong></td><td>Fino al 29 il filler è la wand, non Shadow Bolt: si mettono i DoT e si finisce con la bacchetta. Una wand da 11 dps contro una da 29 dps è il più grande upgrade singolo del livello.</td></tr>
-      <tr><td><strong>Improved Corruption 5/5</strong></td><td>Al livello 10, tutti e cinque i punti: rende Corruption istantanea. Con un punto solo la rotazione «giusta» perde tempo a ogni pull.</td></tr>
-      <tr><td><strong>Demone giusto</strong></td><td>Imp = danno (gruppi e dungeon). Voidwalker = tank (solo). Dal 20 succubus/incubus = danno e tank leggero: è il pet del livellamento.</td></tr>
-      <tr><td><strong>Life Tap</strong></td><td>Fra un pull e l'altro si tappa vita → mana invece di bere. Rango 2 al 16, rango 3 al 26.</td></tr>
+      <tr><td><strong>Bacchetta</strong></td><td>Fino al 29 il filler è la wand, non Shadow Bolt: DoT sul bersaglio, poi wand fino alla morte. Cambiare wand è spesso il più grande upgrade del blocco.</td></tr>
+      <tr><td><strong>Improved Corruption 5/5</strong></td><td>Corruption istantanea: senza i cinque punti la rotazione perde tempo a ogni pull.</td></tr>
+      <tr><td><strong>Demone giusto</strong></td><td>Succubus/Incubus per livellare (tanka e mena), Imp nei gruppi, Voidwalker solo se servono i sacrifici. Dal 30 si passa a drain tanking.</td></tr>
+      <tr><td><strong>Life Tap</strong></td><td>Fra i pull si tappa vita → mana, non si beve. La vita la ridà Drain Life o la succubus che tanka.</td></tr>
+      <tr><td><strong>Filler corretto</strong></td><td>Dal 30: Corruption + Bane of Agony + Siphon Life, poi Drain Life come riempitivo (drain tanking). Prima del 30: wand.</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Pesi stat: <strong>spell power = shadow damage 1</strong> · intellect 0,3 · stamina 0,2 · spirit 0,15. Crit e hit non contano prima del 40: un verde «+3 shadow» batte un blu con int e stamina.</p>
+  <p>Pesi stat: <strong>spell power = shadow damage 1</strong> · intellect 0,3 · stamina 0,2 · spirit 0,15. Sotto il 40 crit e hit non contano: un verde «+3 shadow» batte un blu con int e stamina.</p>
+</section>
+
+<section id="talenti">
+  <h2><span>02</span>Talenti, punto per punto</h2>
+  <p>Al 20 ho 11 punti (uno per livello dal 10), al 30 ne ho 21. Ordine consigliato, senza respec:</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th class="num">Liv</th><th>Punto</th><th class="num">Totale</th></tr></thead>
+    <tbody>
+      <tr><td class="n">10 → 14</td><td>Improved Corruption 5/5</td><td class="num">5</td></tr>
+      <tr><td class="n">15 → 16</td><td>Improved Life Tap 2/2</td><td class="num">7</td></tr>
+      <tr><td class="n">17 → 19</td><td>Improved Drains 3/3</td><td class="num">10</td></tr>
+      <tr><td class="n">20</td><td>Fel Concentration 1/3</td><td class="num">11</td></tr>
+      <tr><td class="n">21 → 22</td><td>Soul Harvest 2/2</td><td class="num">13</td></tr>
+      <tr><td class="n">23 → 24</td><td>Fel Concentration → 3/3</td><td class="num">15</td></tr>
+      <tr><td class="n">25</td><td>Amplify Curse 1/1</td><td class="num">16</td></tr>
+      <tr><td class="n">26 → 27</td><td>Improved Bane of Agony 2/2</td><td class="num">18</td></tr>
+      <tr><td class="n">28 → 29</td><td>Nightfall 2/2 (Shadow Bolt istantaneo a tratti)</td><td class="num">20</td></tr>
+      <tr><td class="n">30</td><td><strong>Siphon Life</strong></td><td class="num">21</td></tr>
+    </tbody>
+  </table>
+  </div>
   <div class="box">
-    <div class="kicker">Set Shadow</div>
-    <p style="margin:0">I pezzi con <strong>+shadow</strong> che contano (boots, gloves, gown, sash, leggings, circlet) sono <strong>BoP da tailoring</strong>: si craftano, non si comprano. Il piano per averli sta nella pagina del tailoring. <a class="crosslink" href="../wow-forever-tailoring/">Tailoring →</a></p>
+    <div class="kicker">Perché quest'ordine</div>
+    <p style="margin:0">I primi 11 punti sono quelli che si sentono a ogni pull (Corruption istantanea, Life Tap più ricco, drain che curano). Dal 21 in poi si comprano le cose che rendono il drain tanking sostenibile: Soul Harvest per il mana dopo un Drain Soul kill, Fel Concentration per non farsi interrompere i drain, poi Amplify Curse + Improved Bane of Agony per il danno sui DoT, Nightfall per gli Shadow Bolt gratis e Siphon Life al 30.</p>
   </div>
 </section>
 
 <section id="skill">
-  <h2><span>02</span>Skill e talenti per livello</h2>
+  <h2><span>03</span>Skill da comprare al trainer</h2>
+  <p>Solo le cose che cambiano il gioco: le altre si prendono quando avanzano soldi. Il <strong>24 è il livello caro</strong>: se il gold è poco, prendi prima Corruption r3 e Drain Soul r2.</p>
   <div class="scroll">
   <table>
-    <thead><tr><th class="num">Liv</th><th>Cosa arriva</th><th>Perché conta</th></tr></thead>
+    <thead><tr><th class="num">Liv</th><th>Skill</th><th>Perché</th></tr></thead>
     <tbody>
-      <tr><td class="n">14</td><td>Corruption r2 · Drain Life r1</td><td>il DoT principale sale di rango; Drain Life per recuperare vita</td></tr>
-      <tr><td class="n">16</td><td>Life Tap r2 · Unending Breath</td><td>più mana per tappata</td></tr>
-      <tr><td class="n">18</td><td>Searing Pain · Bane of Agony r2</td><td>danno diretto rapido; il curse principale sale</td></tr>
-      <tr><td class="n">20</td><td>Succubus/Incubus (quest) · Demon Armor r1 · Ritual of Summoning · Curse of the Elements</td><td>cambia il pet, quindi il ritmo dei pull</td></tr>
-      <tr><td class="n">24</td><td>Corruption r3 · Drain Soul r2 · Healthstone (Lesser)</td><td>il salto di danno dei DoT</td></tr>
-      <tr><td class="n">26</td><td>Life Tap r3 · Searing Pain r2 · Banish</td><td>mana e controllo</td></tr>
+      <tr><td class="n">20</td><td>Demon Armor r1 · Ritual of Summoning · Curse of the Elements</td><td>armatura del warlock, summon per i gruppi, curse per i boss</td></tr>
+      <tr><td class="n">24</td><td><strong>Corruption r3 · Drain Soul r2</strong> · Immolate r · Shadow Bolt r · Drain Life r · Create Healthstone (Lesser)</td><td>il salto di danno dei DoT e la pietra salute da dare al tank</td></tr>
+      <tr><td class="n">26</td><td>Life Tap r3 · Searing Pain r2 · Banish r1 · Curse of Tongues r1</td><td>mana, danno diretto, controllo su elementali/demon</td></tr>
+      <tr><td class="n">28</td><td>Bane of Agony r3</td><td>il curse principale sale di rango</td></tr>
+      <tr><td class="n">30</td><td>Siphon Life (talento) · Soul Siphon (passivo)</td><td>cura mentre fai danno: è l'inizio del drain tanking</td></tr>
     </tbody>
   </table>
   </div>
-  <h3>Talenti (Affliction, per livellare)</h3>
-  <ul>
-    <li><strong>Improved Corruption 5/5</strong> — obbligatorio: Corruption istantanea.</li>
-    <li><strong>Improved Life Tap 2/2</strong> — più mana per ogni tappata.</li>
-    <li><strong>Improved Drains 3/3</strong> — Drain Life cura e fa più danno.</li>
-    <li><strong>Fel Concentration</strong> — i drain non si interrompono quando vieni colpito (dal 20 in su).</li>
-    <li>Al 30: <strong>Siphon Life</strong> e <strong>Nightfall</strong> (Shadow Bolt istantaneo ogni tanto).</li>
-  </ul>
+</section>
+
+<section id="blocchi">
+  <h2><span>04</span>Blocchi da 10 livelli</h2>
+  <p>La guida è fatta a blocchi: ogni 10 livelli se ne aggiunge uno con la stessa forma (zone, talenti, skill, pezzi da cacciare, armi, dungeon, checklist). I blocchi vecchi restano come storico.</p>
+
+  <div class="block">
+    <div class="block-head"><span class="range">20 → 30</span><span class="state live">Attivo</span></div>
+    <div class="block-body">
+      <p>Il decennio in cui si smette di fare danni con la bacchetta e si comincia a draintankare. Tre obiettivi: <strong>Staff of Soran'ruk</strong> (quest di classe), <strong>tailoring a 125</strong> (set Shadow) e arrivare al 30 con i primi 21 talenti.</p>
+      <ul>
+        <li><strong>Talenti:</strong> dal 21 al 30 → 10 punti, tabella in <a href="#talenti">§02</a>.</li>
+        <li><strong>Zone:</strong> Duskwood → Wetlands/Redridge → Ashenvale, con BFD e RFK in mezzo (<a href="#zone">§05</a>).</li>
+        <li><strong>Pezzi:</strong> quest e drop, esclusi quelli cuciti (<a href="#pezzi">§06</a>).</li>
+        <li><strong>Armi:</strong> Soran'ruk è la priorità, Staff of the Shade il colpo di fortuna (<a href="#armi">§07</a>).</li>
+        <li><strong>Tailoring:</strong> 55 → 125 mentre questing, in parallelo (<a href="#tailoring">§08</a>).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block draft">
+    <div class="block-head"><span class="range">30 → 40</span><span class="state">Da compilare al 30</span></div>
+    <div class="block-body">
+      <p>Quando arrivo al 30: talenti 22-31 (Malevolence, Shadow Mastery in vista), drain tanking a regime, zona nuova (probabile Stranglethorn o Arathi), pezzi da cacciare in SM/RFK e la Cavalcatura del warlock (Felsteed) al 40.</p>
+    </div>
+  </div>
+
+  <div class="block draft">
+    <div class="block-head"><span class="range">40 → 50</span><span class="state">Da compilare al 40</span></div>
+    <div class="block-body">
+      <p>Felsteed al 40, Spellstone al 36, primo tratto di mageweave per il tailoring (200+). Da riempire con zona, dungeon e pezzi.</p>
+    </div>
+  </div>
+
+  <div class="block draft">
+    <div class="block-head"><span class="range">50 → 60</span><span class="state">Da compilare al 50</span></div>
+    <div class="block-body">
+      <p>Pre-raid: set craftati di livello alto, quest di classe finali, reputazioni. Da riempire.</p>
+    </div>
+  </div>
+</section>
+
+<section id="zone">
+  <h2><span>05</span>Dove andare, 20 → 30</h2>
+  <p>Percorso pensato per far crescere <em>anche</em> il tailoring: le zone scelte hanno umanoidi che danno lana e seta, così la stoffa arriva mentre expo.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th class="num">Liv</th><th>Zona</th><th>Cosa ci faccio</th><th>Stoffa</th></tr></thead>
+    <tbody>
+      <tr><td class="n">20-22</td><td><strong>Duskwood</strong> (da Stormwind via Elwynn)</td><td>quest di Darkshire, worgen e ragni; è la zona più comoda e più densa di umanoidi</td><td>lana → prime seta</td></tr>
+      <tr><td class="n">22-25</td><td><strong>Blackfathom Deeps</strong> (Ashenvale) + <strong>Razorfen Kraul</strong></td><td>BFD per Gravestone Scepter e i 3 frammenti Soran'ruk; RFK per la seta e il loot</td><td>seta</td></tr>
+      <tr><td class="n">22-26</td><td><strong>Wetlands</strong> (Menethil) o <strong>Redridge</strong></td><td>orchi Dragonmaw e gnoll: quest facili e tanti umanoidi; a Menethil c'è anche il pattern vendor del tailoring</td><td>lana e seta</td></tr>
+      <tr><td class="n">25-28</td><td><strong>Ashenvale</strong> (Astranaar / Maestra's Post)</td><td>satiri, naga e furbolg; di passaggio per la Heartswood se non l'ho già fatta</td><td>seta</td></tr>
+      <tr><td class="n">26-30</td><td><strong>Shadowfang Keep</strong> + <strong>Duskwood sud / Thousand Needles</strong></td><td>SFK per il frammento grande; poi quest nei mound degli ogre o nei Galak centaur</td><td>seta</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="box warn">
+    <div class="kicker">Da non fare</div>
+    <p style="margin:0">Non restare nei Barrens a grindare quilboar «per la stoffa»: a 20 sono grigi, la exp è quasi zero e la lana che droppano non vale il tempo. E i Barrens sono terra Horde: ci si va per le quest di classe, non per livellare.</p>
+  </div>
 </section>
 
 <section id="pezzi">
-  <h2><span>03</span>Pezzi: cosa indossare</h2>
-  <p>Priorità: <strong>arma e bacchetta</strong> prima di tutto, poi petto, gambe, testa. Gli slot senza un buon pezzo (le spalle al 20) si lasciano vuoti senza rimpianti.</p>
+  <h2><span>06</span>Pezzi da cacciare (quest e world drop)</h2>
+  <p>Qui <strong>solo roba che non posso cucire</strong>: tutto ciò che è tailoring (boots, gloves, sash, leggings, circlet, gown) è escluso di proposito e sta nella pagina del tailoring. Priorità in ordine di colonna.</p>
   <div class="scroll">
   <table>
-    <thead><tr><th>Slot</th><th>Pezzo</th><th>Fonte</th><th class="num">Req</th></tr></thead>
+    <thead><tr><th>Slot</th><th>Pezzo</th><th>Cosa dà</th><th>Come</th></tr></thead>
     <tbody>
-      <tr><td>Testa</td><td><strong>Shadow Circlet</strong> (+10 sta, <strong>+11 shadow</strong>)</td><td>tailoring 100-125 (BoP), livello 20 — le goggle di ingegneria non sono indossabili senza Ingegneria</td><td class="num">20</td></tr>
-      <tr><td>Collo</td><td>Ephemeral Choker (+5 spirit)</td><td>Faldrim Anvilmar · Hall of Thanes</td><td class="num">13</td></tr>
-      <tr><td>Schiena</td><td>Heavy Woolen Cloak (+4 spirit +4 spell power)</td><td>asta 8-12s — <em>non</em> Spiritwraith Drape (agilità)</td><td class="num">16</td></tr>
-      <tr><td>Petto</td><td><strong>Robes of the Disgraced Thane</strong> (+8 spell power)</td><td>Durgen Dirgehammer · Hall of Thanes; alternativa Filigreed Shadow Gown dal tailoring</td><td class="num">13</td></tr>
-      <tr><td>Polsi</td><td>Aetherwisp Bracers (+3 spell power)</td><td>Faldrim Anvilmar · Hall of Thanes</td><td class="num">13</td></tr>
-      <tr><td>Mani</td><td>Shadow Gloves (+7 shadow)</td><td>tailoring 100 (BoP)</td><td class="num">15</td></tr>
-      <tr><td>Cintura</td><td>Shadow Sash (+7 shadow) · Tuskwrap Belt (+6 spell power)</td><td>tailoring 110 · drop da Bjork</td><td class="num">17 / 16</td></tr>
-      <tr><td>Gambe</td><td>Silk-threaded Trousers → Filigreed Shadow Leggings (+11 shadow)</td><td>asta ~13s → tailoring 105</td><td class="num">13 / 20</td></tr>
-      <tr><td>Piedi</td><td>Shadow Boots (+6 shadow)</td><td>tailoring (BoP)</td><td class="num">12</td></tr>
-      <tr><td>Anelli</td><td>Minor Channeling Ring (+2 int +5 spell power) — <em>no</em> Ring of the Shadow: dà solo +5 resistenza allo shadow</td><td>quest «WANTED: Chok'sul» (Loch Modan)</td><td class="num">20</td></tr>
-      <tr><td>Petto (alternativa)</td><td>Necrology Robes (+14 shadow)</td><td>trash di Shadowfang Keep</td><td class="num">20</td></tr>
+      <tr><td>Petto</td><td><strong>Necrology Robes</strong></td><td>+5 int · +3 sta · <strong>+14 shadow</strong></td><td><span class="pill drop">world drop</span> trash di Shadowfang Keep</td></tr>
+      <tr><td>Petto (alternativa)</td><td>Robes of the Disgraced Thane</td><td>35 armor · +4 spirit · <strong>+8 spell power</strong></td><td><span class="pill drop">drop</span> Durgen Dirgehammer, Hall of Thanes</td></tr>
+      <tr><td>Spalle</td><td><strong>Fairywing Mantle</strong></td><td>+9 int · +2 sta · +4 spell power</td><td><span class="pill q">quest</span> «A Fine Mess»</td></tr>
+      <tr><td>Polsi</td><td>Aetherwisp Bracers</td><td>+3 spell power</td><td><span class="pill drop">drop</span> Faldrim Anvilmar, Hall of Thanes</td></tr>
+      <tr><td>Collo</td><td>Ephemeral Choker</td><td>+5 spirit</td><td><span class="pill drop">drop</span> Faldrim Anvilmar, Hall of Thanes</td></tr>
+      <tr><td>Anello</td><td><strong>Minor Channeling Ring</strong></td><td>+2 int · +5 spell power</td><td><span class="pill q">quest</span> «WANTED: Chok'sul» (Loch Modan)</td></tr>
+      <tr><td>Trinket</td><td>Lookie's Spyglass</td><td>+1 spirit (poco, ma è gratis)</td><td><span class="pill drop">drop</span> Cookie, The Deadmines</td></tr>
+      <tr><td>Testa</td><td>— nessun buon pezzo non-tailoring —</td><td>la testa è coperta dallo <strong>Shadow Circlet</strong> che cucirò</td><td><span class="pill tail">tailoring</span></td></tr>
+      <tr><td>Schiena / Gambe</td><td>Heavy Woolen Cloak · Silk-threaded Trousers</td><td>+4 spirit +4 spell power · stats pulite</td><td><span class="pill">asta</span> ~11s e ~15s (14/11)</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Da non comprare: <strong>Magefist Gloves</strong> (3g 49s) e qualunque blu BoE sopra ~50s. A questo livello un pezzo si cambia in quattro livelli.</p>
-  <div class="box warn">
-    <div class="kicker">Prima di comprare, guarda il tooltip</div>
-    <p style="margin:0">Due trappole già prese: le <strong>Shadow Goggles</strong> sono di ingegneria e <strong>richiedono Ingegneria per essere indossate</strong> (quindi inutili per un warlock sarto), e il <strong>Ring of the Shadow</strong> dà <strong>+5 resistenza allo shadow</strong>, non danno. Regola: requisito di professione e stat vere prima del prezzo.</p>
-  </div>
+  <p>Da non comprare: <strong>Shadow Goggles</strong> (richiedono Ingegneria) e <strong>Ring of the Shadow</strong> (solo +5 resistenza allo shadow). Blu BoE sopra ~50s: no.</p>
 </section>
 
 <section id="armi">
-  <h2><span>04</span>Armi e bacchette, in ordine di arrivo</h2>
+  <h2><span>07</span>Armi: cosa puntare, in ordine</h2>
   <div class="scroll">
   <table>
-    <thead><tr><th>Pezzo</th><th class="num">Dati</th><th>Come</th></tr></thead>
+    <thead><tr><th>Arma</th><th class="num">Dati</th><th>Come</th><th class="num">Liv</th></tr></thead>
     <tbody>
-      <tr><td><strong>Golemheart Stave</strong> <span class="pill">2H</span></td><td class="num">+18 spell power · 11,9 dps</td><td>Plunder, Hall of Thanes. Lo spell power si vede solo nel tooltip in gioco, non nel datamine.</td></tr>
-      <tr><td><strong>Staff of Soran'ruk</strong> <span class="pill">2H</span></td><td class="num">+34 shadow e fire · +14 sta</td><td>quest «The Orb of Soran'ruk», Doan Karhan (Barrens 49.2/57.2): 3 frammenti dai Twilight Acolyte (BFD o Zoram'gar Strand) + 1 Large da Shadowfang Darksoul (SFK). Scegli la <em>staff</em>, non l'orb.</td></tr>
-      <tr><td><strong>Fang of Magmatus</strong> <span class="pill">1H</span></td><td class="num">+4 int · 12,1 dps</td><td>Magmatus, Hall of Thanes. Serve solo se resti a una mano con il Dwarven Tome (+3 spell power).</td></tr>
-      <tr><td><strong>Gravestone Scepter</strong> <span class="pill">wand</span></td><td class="num">29 dps</td><td>quest «Blackfathom Villainy» (Blackfathom Deeps, dal 18): la bacchetta migliore prima del 30.</td></tr>
-      <tr><td><strong>Deepblaze</strong> <span class="pill">wand</span></td><td class="num">18,5 dps · +3 fire res</td><td>quest «Old Ironforge Incursion» (Earthseer Farsen, Gol'Bolar Quarry, Dun Morogh; prerequisito «Underground Map»).</td></tr>
-      <tr><td>Greater Magic Wand <span class="pill">wand</span></td><td class="num">17,5 dps</td><td>asta ~2s: solo se non hai ancora fatto le quest sopra.</td></tr>
+      <tr><td><strong>Staff of Soran'ruk</strong> <span class="pill q">quest</span></td><td class="num">+34 shadow e fire · +14 sta · 15,7 dps</td><td>«The Orb of Soran'ruk» da Doan Karhan (Barrens 49.2/57.2): 3 frammenti dai Twilight Acolyte in BFD + 1 Large dai Shadowfang Darksoul in SFK. Scegli la staff, non l'orb.</td><td class="num">20</td></tr>
+      <tr><td><strong>Staff of the Shade</strong> <span class="pill drop">world drop</span></td><td class="num">+37 shadow · +15 sta</td><td>drop raro a Razorfen Kraul. Se esce, è meglio di Soran'ruk per l'Affliction: prenderla.</td><td class="num">22</td></tr>
+      <tr><td><strong>Gravestone Scepter</strong> <span class="pill q">quest</span> <span class="pill">wand</span></td><td class="num">29 dps</td><td>«Blackfathom Villainy» (BFD). La bacchetta migliore prima del 30: da fare appena possibile.</td><td class="num">18+</td></tr>
+      <tr><td><strong>Spellcrafter Wand</strong> <span class="pill q">quest</span> <span class="pill">wand</span></td><td class="num">20,3 dps · +4 spell power</td><td>«Retrieval for Mauren» (Stonetalon Mountains): piano B se BFD non si trova.</td><td class="num">~20</td></tr>
+      <tr><td>Golemheart Stave <span class="pill drop">drop</span></td><td class="num">+18 spell power</td><td>Plunder, Hall of Thanes: il ripiego finché non hai Soran'ruk.</td><td class="num">13</td></tr>
     </tbody>
   </table>
   </div>
   <div class="box warn">
     <div class="kicker">Regola dell'arma</div>
-    <p style="margin:0">Per un warlock l'arma è un <strong>bastone da stat</strong>: conta lo spell power, non il danno dell'arma. Per questo una staff a due mani con +18 batte pugnale + off hand (+4 int e +3 spell power).</p>
+    <p style="margin:0">Per un warlock l'arma è un <strong>bastone da stat</strong>: conta lo spell power, non il danno. Due mani con +34 battono pugnale + off hand. All'asta, armi con spell power a questo livello non ne esistono: le armi si prendono da quest e drop, non si comprano.</p>
   </div>
 </section>
 
-<section id="quest">
-  <h2><span>05</span>Quest di classe al 20</h2>
-  <p>Le due quest stanno <strong>nello stesso campo di tende</strong> a nord-est di Camp Taurajo, The Barrens (<strong>~49, 57</strong>): un viaggio, due quest.</p>
-  <h3>Succubus / Incubus (reward Small Soul Pouch)</h3>
-  <ol class="steps">
-    <li><strong>Lago Blackwrench</strong>, The Forlorn Cavern, Ironforge <span class="pill">47.6 / 9.3</span> → «Gakin's Summons». Lo gnomo parte qui, non a Stormwind.</li>
-    <li><strong>Gakin the Darkbinder</strong>, Slaughtered Lamb, Mage Quarter, Stormwind <span class="pill">39.2 / 85.2</span> → «Devourer of Souls».</li>
-    <li><strong>Takar the Seer</strong>, Barrens <span class="pill">49.3 / 57.1</span> → «Heartswood» e «What Is Love?».</li>
-    <li><strong>Heartswood</strong>: albero ad Ashenvale <span class="pill">~31 / 31</span>, a nord-est di Maestra's Post (rovine di Ordil'Aran) → succubus. <strong>Wooden Figurine</strong>: casa ad Ashenvale <span class="pill">26.9 / 22.0</span> → incubus. Due skin dello stesso pet: si possono fare entrambe.</li>
-    <li><strong>The Binding</strong>: tornare da Gakin e uccidere il demone nel seminterrato.</li>
-  </ol>
-  <h3>Orb of Soran'ruk (la staff)</h3>
-  <p>Da <strong>Doan Karhan</strong>, Barrens <span class="pill">49.2 / 57.2</span> — warlock only, livello 20, condivisibile. I frammenti si prendono nei due dungeon che fai comunque (BFD e SFK).</p>
-  <div class="box warn">
-    <div class="kicker">Attenzione</div>
-    <p style="margin:0"><strong>Takar the Seer è ostile</strong> ma non aggroa se non lo attacchi: non toccarlo. I Barrens sono territorio Horde: sotto il 25 conviene andare in gruppo o farsi summonare (Menethil → Theramore → Dustwallow → Barrens, oppure Booty Bay → Ratchet).</p>
-  </div>
-</section>
-
-<section id="dungeon">
-  <h2><span>06</span>Dungeon utili adesso</h2>
-  <h3>Hall of Thanes · Ironforge · 13-18</h3>
-  <p>Sotto Ironforge, cinque giocatori, quattro boss: Faldrim Anvilmar · Magmatus · Plunder · Durgen Dirgehammer. Ingresso a The High Seat, poi Old Ironforge — <span class="pill">/way Ironforge 39.4 55.8</span>. Tutto BoP.</p>
+<section id="tailoring">
+  <h2><span>08</span>Tailoring in parallelo (20 → 30)</h2>
+  <p>Non è una deviazione: è il motivo per cui scelgo le zone con gli umanoidi. Il traguardo del blocco è <strong>125</strong>, che copre tutto il set Shadow tranne la versione «Filigreed» del circlet.</p>
   <div class="scroll">
   <table>
-    <thead><tr><th>Pezzo</th><th>Slot</th><th>Stat</th><th>Da</th></tr></thead>
+    <thead><tr><th class="num">Skill</th><th>Cosa cucire</th><th>Materiale</th><th>Pezzo che sblocca</th></tr></thead>
     <tbody>
-      <tr><td>Golemheart Stave</td><td>staff 2H</td><td>+18 spell power</td><td>Plunder</td></tr>
-      <tr><td>Robes of the Disgraced Thane</td><td>petto cloth</td><td>+8 spell power · +4 spirit</td><td>Durgen</td></tr>
-      <tr><td>Aetherwisp Bracers</td><td>polsi</td><td>+3 spell power</td><td>Faldrim Anvilmar</td></tr>
-      <tr><td>Ephemeral Choker</td><td>collo</td><td>+5 spirit</td><td>Faldrim Anvilmar</td></tr>
-      <tr><td>Fang of Magmatus</td><td>pugnale</td><td>+4 int</td><td>Magmatus</td></tr>
-      <tr><td>Spiritwraith Drape</td><td>schiena</td><td>+3 agilità <span class="pill vend">inutile</span></td><td>Faldrim Anvilmar</td></tr>
+      <tr><td class="n">1 → 55</td><td>Bolt di lino, camicie, Linen Belt</td><td>150 lino comprato (~48s)</td><td>—</td></tr>
+      <tr><td class="n">55 → 60</td><td>Woolen Cape (1 bolt l'uno)</td><td>~30 lana</td><td><strong>Shadow Boots</strong> (60)</td></tr>
+      <tr><td class="n">60 → 75</td><td>Woolen Cape</td><td>~60 lana</td><td><strong>Shadow Gloves</strong> + <strong>Filigreed Shadow Gown</strong> (75)</td></tr>
+      <tr><td class="n">75 → 85</td><td>Heavy Woolen Gloves, poi bolt di seta</td><td>lana + prime seta</td><td><strong>Shadow Sash</strong> (85)</td></tr>
+      <tr><td class="n">85 → 100</td><td>Bolt di seta</td><td>seta dai dungeon</td><td><strong>Filigreed Shadow Leggings</strong> (100)</td></tr>
+      <tr><td class="n">100 → 125</td><td>Bolt di seta</td><td>seta</td><td><strong>Shadow Circlet</strong> (100) — al 125 Expert</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Quest del dungeon (livello 15-16, 2.300-3.200 XP l'una): «Important Heirlooms» (Dwarven Tome, 8 reperti, da Thom Filch fuori dall'ingresso) · «The Restless Dead» · «An Ancient Grudge» · «Old Ironforge Incursion» (la bacchetta Deepblaze) · «The Treaty of Understanding» (16 silver, tavoletta nella sala del tesoro).</p>
-  <h3>Blackfathom Deeps · Ashenvale · 20-27</h3>
-  <p>Tre obiettivi in un giro: la quest della <strong>Gravestone Scepter</strong>, i <strong>3 Soran'ruk Fragment</strong> dagli Twilight Acolyte e la seta per il tailoring.</p>
-  <h3>Shadowfang Keep · Silverpine · 18-25</h3>
-  <p>Il <strong>Large Soran'ruk Fragment</strong> dai Shadowfang Darksoul (cortile e corridoio verso il boss finale). Di passaggio: Necrology Robes (+14 shadow) dal trash.</p>
-  <h3>Razorfen Kraul · Barrens sud · 22-30</h3>
-  <p>Seta in quantità dai quilboar, più loot normale. Comodo perché è sulla strada dei Barrens.</p>
+  <p>Dettaglio completo — cosa comprare, cosa farne dei pezzi, materiali e pattern: <a class="crosslink" href="../wow-forever-tailoring/">pagina Tailoring →</a></p>
 </section>
 
-<section id="ordine">
-  <h2><span>07</span>Ordine delle prossime mosse</h2>
+<section id="dungeon">
+  <h2><span>09</span>Dungeon del blocco</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Dungeon</th><th class="num">Liv</th><th>Cosa ci prendo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Blackfathom Deeps</strong> · Ashenvale</td><td class="num">20-27</td><td>Gravestone Scepter (quest), 3 Soran'ruk Fragment, seta</td></tr>
+      <tr><td><strong>Shadowfang Keep</strong> · Silverpine</td><td class="num">18-25</td><td>Large Soran'ruk Fragment, Necrology Robes dal trash</td></tr>
+      <tr><td><strong>Razorfen Kraul</strong> · Barrens sud</td><td class="num">22-30</td><td>seta in quantità, Staff of the Shade se sei fortunato</td></tr>
+      <tr><td><strong>The Deadmines</strong> · Westfall</td><td class="num">17-22</td><td>Lookie's Spyglass da Cookie (solo se ci passi)</td></tr>
+      <tr><td>Hall of Thanes · Ironforge</td><td class="num">13-18</td><td>Golemheart Stave, Robes of the Disgraced Thane, Aetherwisp Bracers, Ephemeral Choker — se non l'ho già fatto</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="checklist">
+  <h2><span>10</span>Checklist 20 → 30</h2>
   <ol class="steps">
-    <li><strong>Taurajo</strong>: le due quest di classe (succubus + Orb). Cinque minuti, sblocca pet e staff.</li>
-    <li><strong>Blackfathom Deeps</strong>: Gravestone Scepter + 3 frammenti + seta.</li>
-    <li><strong>Hall of Thanes</strong> se non l'hai già fatto: Golemheart Stave, Robes, Aetherwisp.</li>
-    <li><strong>Shadowfang Keep</strong>: frammento grande → consegna a Doan → <strong>Staff of Soran'ruk</strong>.</li>
-    <li><strong>Tailoring a 125</strong> per il set Shadow.</li>
-    <li>Dal 24: Corruption r3 e Drain Soul r2; al 30 Siphon Life e Nightfall.</li>
+    <li><strong>Quest di classe a Taurajo</strong> (Barrens ~49,57): succubus/incubus e Orb of Soran'ruk.</li>
+    <li><strong>BFD</strong>: Gravestone Scepter + 3 frammenti. <strong>SFK</strong>: frammento grande → <strong>Staff of Soran'ruk</strong> da Doan.</li>
+    <li><strong>Vai a Duskwood</strong> e questaci fino al 22-23; tieni tutta la stoffa.</li>
+    <li><strong>Tailoring</strong>: 150 lino comprati → 55; Woolen Cape dalla lana → 60 → <strong>Shadow Boots</strong> addosso.</li>
+    <li><strong>Asta, una volta sola</strong>: Heavy Woolen Cloak (~11s) e Silk-threaded Trousers (~15s). Nient'altro.</li>
+    <li><strong>Al 24</strong> fermati al trainer: Corruption r3 e Drain Soul r2 prima di tutto il resto.</li>
+    <li><strong>Al 25-26</strong> passa a Wetlands/Ashenvale: più seta, quest nuove, e il pattern vendor del tailoring a Menethil.</li>
+    <li><strong>Al 30</strong>: Siphon Life, Soul Siphon, e si apre il blocco 30-40.</li>
   </ol>
-  <p><a class="crosslink" href="../wow-forever-tailoring/">Vai al piano Tailoring →</a></p>
 </section>
 
 <footer>
-  <span>Prezzi gear: snapshot 14/11/2026 · verificare prima di comprare</span>
-  <span><a href="../../">← indice note</a> · <a href="https://github.com/devbewill/html-notes">GitHub ↗</a></span>
+  <span>Prezzi: snapshot 14/11/2026 · verificare prima di comprare</span>
+  <span><a href="../../">← html notes</a> · <a href="../wow-forever-tailoring/">Tailoring</a> · <a href="https://github.com/devbewill/html-notes">GitHub ↗</a></span>
 </footer>
 
 </div>
