@@ -70,6 +70,7 @@ li{margin:6px 0}
 .block-head .range{font-family:var(--serif);font-size:24px;color:var(--ink);letter-spacing:-.01em}
 .block-head .state{font:10px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .block-head .state.live{color:var(--accent)}
+.block-head .state.done{color:var(--muted);text-decoration:line-through}
 .block-body{padding:6px 18px 18px}
 .block.draft{background:#fcfcfa;border-style:dashed}
 .block.draft .block-body p{color:var(--muted)}
@@ -191,22 +192,22 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
   <p>La guida è fatta a blocchi: ogni 10 livelli se ne aggiunge uno con la stessa forma (zone, talenti, skill, pezzi da cacciare, armi, dungeon, checklist). I blocchi vecchi restano come storico.</p>
 
   <div class="block">
-    <div class="block-head"><span class="range">20 → 30</span><span class="state live">Attivo</span></div>
+    <div class="block-head"><span class="range">20 → 30</span><span class="state done">Completato</span></div>
     <div class="block-body">
-      <p>Stato attuale: <strong>livello 23</strong>, Tailoring 100, Cookie’s Stirring Rod equipaggiata; gear invariato dallo scan del 16/11 (armory AOTC, GS 132, item level 15, <strong>testa ancora vuota</strong>, 45 Spell Power, 534 salute). Obiettivi da qui al 30: <strong>Staff of Soran’ruk</strong> (quest di classe, gratis), <strong>Shadow Circlet</strong> per riempire la testa, <strong>Spidersilk Boots</strong> dall’asta, e al 27 la bacchetta Gravestone Scepter.</p>
-      <ul>
-        <li><strong>Zone:</strong> Redridge fino a 25 su mob verdi/gialli; Duskwood solo ovest e mai sugli elite (<a href="#zone">§05</a>).</li>
-        <li><strong>Wand:</strong> Cookie’s Rod fa 22,3 DPS e basta fino al 27, quando arriva la Gravestone Scepter (29 DPS) dalla quest BFD (<a href="#armi">§07</a>).</li>
-        <li><strong>Staff:</strong> Orb of Soran’ruk ha livello quest 25 ma minimo 20: già accettabile al 23. Frammenti in gruppo tra BFD e SFK (<a href="#armi">§07</a>).</li>
-        <li><strong>Tailoring:</strong> a skill 100 puoi già cucire Shadow Gloves e Shadow Circlet, appena hai i pattern da Mivin (<a href="#tailoring">§08</a>).</li>
-      </ul>
+      <p>Chiuso al 30. Fatto in questo blocco: Staff of Soran’ruk, Gravestone Scepter, Spidersilk Boots, Minor Channeling Ring, Ring of Power Regulation e il <strong>Filigreed Shadow Circlet</strong> cucito. Le zone: Redridge, poi Duskwood ovest, con soste in SFK e BFD per i frammenti.</p>
     </div>
   </div>
 
-  <div class="block draft">
-    <div class="block-head"><span class="range">30 → 40</span><span class="state">Da compilare al 30</span></div>
+  <div class="block">
+    <div class="block-head"><span class="range">30 → 40</span><span class="state live">Attivo</span></div>
     <div class="block-body">
-      <p>Quando arrivo al 30: talenti 22-31 (Malevolence, Shadow Mastery in vista), drain tanking a regime, zona nuova (probabile Stranglethorn o Arathi), pezzi da cacciare in SM/RFK e la Cavalcatura del warlock (Felsteed) al 40.</p>
+      <p>Stato al <strong>32</strong> (armory wowforeveraddon, 21/11 22:15 UTC): 1.058 salute, 1.680 mana, 82 sta / 79 int / 96 spi, armatura 333, <strong>Spell Power 46</strong> e altri <strong>+48 shadow</strong> fra staffa e circlet, quindi ~<strong>94 di danno shadow</strong> reale. Talenti Affliction 18 + Unholy Power 5. Tailoring 126, Herbalism 175, Cooking 51.</p>
+      <ul>
+        <li><strong>Il buco è il danno, non la vita:</strong> petto ilvl 18, gambe ilvl 18, polsi e cintura senza danno, collo solo spirit. Sei slot sotto il livello della zona.</li>
+        <li><strong>Un solo giro di SM</strong> (Graveyard + Library, 30-38) copre arma, gambe, spalle e collo (§06).</li>
+        <li><strong>Talenti:</strong> al 33-35 metti 3 punti in Affliction e apri <strong>Siphon Life</strong>: da lì si passa al drain tanking (Drain Life come filler al posto della wand).</li>
+        <li><strong>Al 35</strong> si apre The Drowned City (Briny Sash, Mutinous Cuffs) e al 40 arriva il Felsteed: metti da parte ~90g per il cavallo.</li>
+      </ul>
     </div>
   </div>
 
@@ -265,19 +266,25 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
 
 <section id="pezzi">
   <h2><span>06</span>Pezzi da cacciare (esclusi quelli da Tailoring)</h2>
-  <p>Qui solo acquisti e fonti verificate; i pezzi cucibili sono nella pagina Tailoring. Prezzi = minimo per-unit buyout sulla casa <strong>EU Alliance</strong>, feed Blizzard letto <strong>21/11/2026 21:25 UTC</strong>.</p>
+  <p>Prezzi = minimo per-unit buyout sulla casa <strong>EU Alliance</strong>, feed Blizzard letto <strong>21/11/2026 21:25 UTC</strong>. Stat e provenienze qui sotto sono verificate sui tooltip in gioco, non sul datamine.</p>
   <div class="scroll">
   <table>
-    <thead><tr><th>Slot</th><th>Pezzo</th><th>Valore</th><th>Fonte / decisione</th></tr></thead>
+    <thead><tr><th>Slot</th><th>Pezzo</th><th>Stat</th><th>Dove</th></tr></thead>
     <tbody>
-      <tr><td>Piedi</td><td><strong>Spidersilk Boots</strong> (BoE, req 20)</td><td>+7 Spell Power, +4 Int, +4 Sta, 29 armatura</td><td>La cosa più facile che esiste oggi: <strong>95s 95c</strong>, 7 pezzi in vendita. Compra appena puoi: è l’upgrade più economico per il danno.</td></tr>
-      <tr><td>Anello</td><td><strong>Minor Channeling Ring</strong></td><td>+2 Int, +5 Spell Power</td><td>Quest <em>WANTED: Chok’sul</em> (Loch Modan, livello 22): gratis, basta uccidere l’elite.</td></tr>
-      <tr><td>Gambe (temporaneo)</td><td><strong>Silk-threaded Trousers</strong></td><td>+7 Spell Power, richiede livello 13</td><td>Le hai già: non cambiarle finché non fai le Filigreed Shadow Leggings (+11 Shadow).</td></tr>
-      <tr><td>Testa</td><td>— nessun acquisto sensato —</td><td>—</td><td>L’unica testa vera è lo <strong>Shadow Circlet</strong> cucito (<a href="#tailoring">§08</a>). Le alternative all’asta sono trappole: vedi sotto.</td></tr>
+      <tr><td>Arma</td><td><strong>Illusionary Rod</strong> (staff 2H, ilvl 39)<br>oppure <strong>Hypnotic Blade</strong> (pugnale 1H)</td><td><strong>+44 spell power</strong>, +10 sta, +6 int, +7 spi, +1% crit<br>blade: +44 SP, +8 int, +3 spi</td><td><strong>Arcanist Doan</strong>, Scarlet Monastery: Library (boss 34), BoP, drop frequente. Batte la Staff of Soran’ruk (+34 shadow) di 10 punti di danno shadow e porta stamina, int e crit.</td></tr>
+      <tr><td>Gambe</td><td><strong>Blighted Leggings</strong> (35)</td><td>+19 shadow, +14 spi, 45 armatura</td><td><strong>Azshir the Sleepless</strong>, SM: Graveyard (30). Sulle tue Silk-threaded è +12 shadow.</td></tr>
+      <tr><td>Spalle</td><td><strong>Bloodmage Mantle</strong> (35)</td><td>+9 int, +9 SP, 38 armatura</td><td><strong>Bloodmage Thalnos</strong>, SM: Graveyard (30). +5 SP e +9 int sul Conjurer’s Mantle, ma perdi 8 stamina.</td></tr>
+      <tr><td>Collo</td><td><strong>Scorn’s Icy Choker</strong> (35)</td><td>+7 SP, +6 int, +5 sta</td><td><strong>Trash di Scarlet Monastery</strong>, drop frequente: si prende senza boss. Il Giantstone Medallion dà solo spirit.</td></tr>
+      <tr><td>Polsi</td><td><strong>Spidertank Oilrag</strong> (34)</td><td>+9 SP, 22 armatura</td><td><strong>Electrocutioner 6000</strong>, Gnomeregan (29). I tuoi Shimmering Bracers non danno danno.</td></tr>
+      <tr><td>Vita</td><td><strong>Belt of Arugal</strong> (28)</td><td>+9 SP, +3 int, +5 spi</td><td><strong>Archmage Arugal</strong>, Shadowfang Keep. La Nightsky Sash dà int e sta ma zero danno.</td></tr>
+      <tr><td>Schiena</td><td><strong>Thornweaver Drape</strong> (30)</td><td>+7 SP, +6 spi, 24 armatura</td><td><strong>Roogug</strong>, Razorfen Kraul. +3 SP sulla Heavy Woolen Cloak.</td></tr>
+      <tr><td>Petto</td><td><strong>Beguiler Robes</strong> (34, BoE)</td><td>+12 int, +8 spi, +9 SP, 50 armatura</td><td>Drop in Scarlet Monastery. <strong>Non comprarla</strong>: all’asta sta 4g 79s per 9 punti di spell power.</td></tr>
+      <tr><td>Petto (ripiego)</td><td><strong>Necrology Robes</strong> (25)</td><td>+5 int, +3 sta, +14 shadow</td><td>Trash di Shadowfang Keep. All’asta costa 25g: prendila solo se esce in run.</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Da non comprare (prezzi di oggi): <strong>Magician’s Mantle</strong> 3g 80s per +5 Spell Power · <strong>Necrology Robes</strong> 25g · <strong>Cowl of Necromancy</strong> 77s per 2 di armatura · <strong>Shadow Goggles</strong> (richiedono Ingegneria) · <strong>Ring of the Shadow</strong> (Shadow Resistance, non danno). La <strong>Heavy Woolen Cloak</strong> è cucibile da te: falla, non comprarla, se non hai già un mantello con più Spell Power.</p>
+  <p><strong>Da non prendere</strong>: <strong>Robe of Doan</strong> — il suggeritore dell’armory la segna come «+16 spell damage», ma il tooltip parla di <strong>+16 danni da Fuoco</strong>: per un Affliction è solo armatura e spirit. <strong>Violet Sorcerer’s Robes</strong> e <strong>Ephemeral Grips</strong> stanno in City of Dalaran (28-35), ma l’ingresso è lato Horde a Silverpine dietro un gate che chiede la <em>Dalaran Sewer Key</em> di fonte ignota. <strong>Briny Sash</strong> (+9 SP, +9 int) e <strong>Mutinous Cuffs</strong> (+7 SP, +7 sta) chiedono livello 35 e 34 in The Drowned City: prossimo giro.</p>
+  <p>Effetto del giro completo: danno shadow da <strong>~94 a ~149</strong>, armatura da 333 a ~390. Nessun pezzo si compra: sono BoP tranne i due petto BoE.</p>
 </section>
 
 <section id="armi">
@@ -289,7 +296,9 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
     <tbody>
       <tr><td><strong>Cookie’s Stirring Rod</strong> <span class="pill">già equipaggiata</span></td><td>22,3 DPS; richiede 17. Effetto attuale: +25% Cooking speed (non Spell Power).</td><td>Da Cookie, Deadmines; BoP. È una buona wand per il 22: non comprare un upgrade intermedio.</td></tr>
       <tr><td><strong>Gravestone Scepter</strong> <span class="pill">wand</span></td><td>29 DPS, +3 Spirit, +6 Shadow Damage.</td><td>Reward a scelta di <em>Blackfathom Villainy</em>, quest di livello 27, BFD. A 27 falla in gruppo e scegli questa se vuoi aumentare il DPS della wand.</td></tr>
-      <tr><td><strong>Staff of Soran’ruk</strong> <span class="pill">staffa</span></td><td>21,2 DPS; +14 Stamina; +34 Shadow e +34 Fire damage; solo Warlock.</td><td>Reward della quest di classe <em>The Orb of Soran’ruk</em>: 3 frammenti da BFD + 1 Large Fragment da SFK. Falla appena puoi e scegli la staff, non l’Orb.</td></tr>
+      <tr><td><strong>Staff of Soran’ruk</strong> <span class="pill">equipaggiata</span></td><td>21,2 DPS; +14 Stamina; +34 Shadow e +34 Fire damage; solo Warlock.</td><td>Fatta. Al 34 è superata dal drop di Doan.</td></tr>
+      <tr><td><strong>Illusionary Rod</strong> <span class="pill">staff 2H · il prossimo passo</span></td><td><strong>+44 spell power</strong>, +10 Stamina, +6 Intellect, +7 Spirit, +1% crit; 25,7 DPS.</td><td><strong>Arcanist Doan, Scarlet Monastery: Library</strong> (boss 34, BoP, drop frequente). È +10 di danno shadow sulla Soran’ruk, più stamina e crit: prendila appena esce.</td></tr>
+      <tr><td><strong>Hypnotic Blade</strong> <span class="pill">pugnale 1H · alternativa</span></td><td><strong>+44 spell power</strong>, +8 Intellect, +3 Spirit; 17,5 DPS. Off hand libera.</td><td>Stesso boss, stesso drop table: se esce la blade e non la rod, va bene lo stesso (perdi 10 stamina, guadagni 2 int).</td></tr>
     </tbody>
   </table>
   </div>
@@ -300,8 +309,8 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
 </section>
 
 <section id="tailoring">
-  <h2><span>08</span>Tailoring adesso: 100 → 125</h2>
-  <p>Stato aggiornato: Tailoring 100. A skill 100 puoi già cucire <strong>Shadow Gloves</strong> (skill 75) e <strong>Shadow Circlet</strong>: ForeverDB dà la ricetta del Circlet come «Tailoring 100 · giallo 125», quindi il numero utile è il primo. Ti serve solo il pattern da Mivin Shadowweave (Redridge 10.1 / 73.1, <strong>30 Merchant’s Favor</strong> per ricetta). Le <strong>Filigreed Shadow Leggings</strong> aspettano il pattern di Razorclaw the Butcher in Shadowfang Keep.</p>
+  <h2><span>08</span>Tailoring adesso: 126 → 150</h2>
+  <p>Stato aggiornato: Tailoring <strong>126</strong> (armory 21/11). A skill 100 hai già potuto cucire Shadow Gloves e Filigreed Shadow Circlet; oltre il 150 si passa alla fascia mageweave e i pezzi utili per l’equip arrivano dopo. L’<strong>Artisan (300)</strong> si allena al livello 35: da lì, e solo se ti serve, si compra stoffa per salire.</p>
   <div class="scroll">
   <table>
     <thead><tr><th>Pezzo</th><th>Stat</th><th>Materiali (prezzi 21/11 21:25 UTC)</th><th class="num">Costo</th></tr></thead>
@@ -331,9 +340,11 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
   <table>
     <thead><tr><th>Dungeon</th><th class="num">Liv</th><th>Cosa ci prendo</th></tr></thead>
     <tbody>
-      <tr><td><strong>Blackfathom Deeps</strong> · Ashenvale</td><td class="num">20-27</td><td>Gravestone Scepter (quest), 3 Soran'ruk Fragment, seta</td></tr>
-      <tr><td><strong>Shadowfang Keep</strong> · Silverpine</td><td class="num">18-25</td><td>Large Soran'ruk Fragment, Necrology Robes dal trash, pattern Filigreed Shadow Leggings da Razorclaw the Butcher</td></tr>
-      <tr><td><strong>Razorfen Kraul</strong> · Barrens sud</td><td class="num">22-30</td><td>seta in quantità; non è la fonte del pattern delle Filigreed Shadow Leggings</td></tr>
+      <tr><td><strong>Scarlet Monastery</strong> · Tirisfal · 4 ali (Graveyard, Library, Armory, Cathedral)</td><td class="num">30-38</td><td>Il giro del blocco: Illusionary Rod e Hypnotic Blade da Doan (Library), Blighted Leggings da Azshir, Bloodmage Mantle da Thalnos (Graveyard), Scorn's Icy Choker dalla trash</td></tr>
+      <tr><td><strong>Gnomeregan</strong> · Dun Morogh</td><td class="num">29-38</td><td>Spidertank Oilrag (Electrocutioner 6000), Acidic Walkers, Electrocutioner Lagnut</td></tr>
+      <tr><td><strong>Razorfen Kraul</strong> · Barrens sud</td><td class="num">29-38</td><td>Thornweaver Drape e Batwing Mantle (Roogug, Blind Hunter), Swinetusk Shank (Agathelos)</td></tr>
+      <tr><td><strong>Shadowfang Keep</strong> · Silverpine</td><td class="num">20-30</td><td>Belt of Arugal (Arugal), Necrology Robes dal trash, pattern delle Filigreed Shadow Leggings (Razorclaw the Butcher)</td></tr>
+      <tr><td><strong>Blackfathom Deeps</strong> · Ashenvale</td><td class="num">24-32</td><td>Ghamoo-ra's Bind, Gaze Dreamer Pants (Twilight Lord Kelris)</td></tr>
       <tr><td><strong>The Deadmines</strong> · Westfall</td><td class="num">17-22</td><td>Lookie's Spyglass da Cookie (solo se ci passi)</td></tr>
       <tr><td>Hall of Thanes · Ironforge</td><td class="num">13-18</td><td>Golemheart Stave, Robes of the Disgraced Thane, Aetherwisp Bracers, Ephemeral Choker — se non l'ho già fatto</td></tr>
     </tbody>
@@ -342,16 +353,14 @@ footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink
 </section>
 
 <section id="checklist">
-  <h2><span>10</span>Checklist 23 → 30</h2>
+  <h2><span>10</span>Checklist 32 → 40</h2>
   <ol class="steps">
-    <li><strong>Pet:</strong> in solo esci col Voidwalker e usa Torment come taunt; Consume Shadows fra i pull. Se i mob ti girano addosso, il problema non è l’equip.</li>
-    <li><strong>Quest di classe:</strong> prendi <em>The Orb of Soran’ruk</em> da Doan Karhan (Barrens 49.2 / 57.2) e cerca gruppo per BFD (3 frammenti) + SFK (1 Large): la staffa è gratis ed è il più grande salto di stat del blocco.</li>
-    <li><strong>AH, 96s:</strong> Spidersilk Boots, +7 Spell Power. È l’acquisto più conveniente che hai adesso.</li>
-    <li><strong>Pattern da Mivin</strong> (Redridge 10.1 / 73.1, 30 Merchant’s Favor l’uno): Shadow Gloves e Shadow Circlet, poi cucili a skill 100 (~8g di materiali con la dye a 88s).</li>
-    <li><strong>SFK in gruppo:</strong> Razorclaw the Butcher per il pattern Filigreed Shadow Leggings (+11 shadow sulle gambe).</li>
-    <li><strong>Quest gratis:</strong> WANTED: Chok’sul (Loch Modan) per il Minor Channeling Ring, +5 Spell Power.</li>
-    <li><strong>Al 27:</strong> Blackfathom Villainy in gruppo, scegli Gravestone Scepter; non vendere Cookie’s Rod prima di averla equipaggiata.</li>
-    <li><strong>Al 30:</strong> Siphon Life, Soul Siphon, e si apre il blocco 30–40.</li>
+    <li><strong>Un giro di Scarlet Monastery</strong> (Graveyard + Library, 30-38): Doan per Illusionary Rod, Azshir per le Blighted Leggings, Thalnos per il Bloodmage Mantle, e il collo dalla trash. Quattro slot in una serata.</li>
+    <li><strong>Gnomeregan</strong> per Electrocutioner 6000 → Spidertank Oilrag ai polsi.</li>
+    <li><strong>SFK</strong> per Arugal → Belt of Arugal; <strong>RFK</strong> per Roogug → Thornweaver Drape.</li>
+    <li><strong>Talenti 33-35:</strong> 3 punti in Affliction e apri <strong>Siphon Life</strong>. Da qui Drain Life diventa il filler al posto della bacchetta.</li>
+    <li><strong>Al 35:</strong> The Drowned City (Briny Sash +9 SP +9 int, Mutinous Cuffs dalla quest) e Artisan Tailoring (skill 300).</li>
+    <li><strong>Al 40:</strong> Felsteed, ~90g da parte. E si apre il blocco 40-50.</li>
   </ol>
 </section>
 
