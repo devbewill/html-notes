@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warlock 35+ — guida di livellamento a tappe · WoW Forever</title>
+<meta name="description" content="Guida di livellamento a tappe da 5 livelli per Slock Ness (Warlock Gnomo Alliance, WoW Forever): analisi gear attuale al 35, tappa 35→40 con pezzi must-have, zone, dungeon, talenti verso Wrack e checklist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfbf9;--ink:#131313;--body:#2f2f2f;--muted:#6b6b6b;--faint:#9c9c95;
+  --hairline:#e7e4dc;--surface:#f4f3ee;--accent:#6c3df4;--accent-soft:#f1ecff;
+  --warn:#8a5a00;--warn-soft:#faf3e0;--green:#1d7a3f;--green-soft:#eaf4ec;
+  --red:#a3232f;--red-soft:#fdf1f2;--blue:#1d5fa8;--blue-soft:#edf4fc;
+  --sans:'Inter',system-ui,sans-serif;--serif:'Fraunces',serif;--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+a{color:inherit}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0 0;font:11px var(--mono);text-transform:uppercase;letter-spacing:.1em}
+.topbar a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px}
+.topbar a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.topbar .home{color:var(--ink);border-bottom:1px solid var(--ink)}
+.topbar-right{display:flex;gap:16px}
+.kicker{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--faint);font-family:var(--mono)}
+header{padding:26px 0 26px;border-bottom:2px solid var(--ink)}
+h1{font-family:var(--serif);font-weight:500;letter-spacing:-.02em;line-height:1.02;font-size:clamp(34px,5.4vw,58px);color:var(--ink);margin:14px 0 14px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);font-size:16px}
+.stamp{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em;border:1px solid var(--hairline);background:#fff;padding:5px 8px;color:var(--muted)}
+.chip b{color:var(--ink);font-weight:500}
+.chip.hi{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+.chip.hi b{color:var(--accent)}
+nav.toc{display:flex;flex-wrap:wrap;gap:14px;padding:16px 0;border-bottom:1px solid var(--hairline);font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+nav.toc a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--ink);border-bottom-color:var(--ink)}
+section{padding:34px 0;border-bottom:1px solid var(--hairline)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(22px,3vw,30px);letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+h2 span{font-family:var(--mono);font-size:11px;color:var(--faint);vertical-align:middle;margin-right:10px;letter-spacing:.1em}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:.11em;font-family:var(--mono);color:var(--ink);margin:26px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--hairline)}
+p{margin:10px 0;max-width:74ch}
+p.lead{color:var(--ink)}
+strong{font-weight:600;color:var(--ink)}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13.5px}
+th{text-align:left;font:10px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:8px 10px 8px 0;border-bottom:1px solid var(--ink)}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
+td.num,th.num{font-family:var(--mono);white-space:nowrap}
+td.n{font-family:var(--mono);color:var(--faint);white-space:nowrap}
+ul,ol{margin:10px 0 10px 22px;max-width:74ch}
+li{margin:6px 0}
+.box{background:#fff;border:1px solid var(--hairline);border-left:3px solid var(--accent);padding:16px 18px;margin:16px 0}
+.box.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.box.green{border-left-color:var(--green);background:var(--green-soft)}
+.box.red{border-left-color:var(--red);background:var(--red-soft)}
+.box .kicker{color:var(--accent);margin-bottom:6px}
+.box.warn .kicker{color:var(--warn)}
+.box.green .kicker{color:var(--green)}
+.box.red .kicker{color:var(--red)}
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:38px;margin:14px 0}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;font:11px var(--mono);color:var(--accent);border:1px solid var(--accent);padding:3px 6px}
+.pill{display:inline-block;font:10px var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border:1px solid var(--hairline);background:#fff;color:var(--muted);vertical-align:middle}
+.pill.must{color:#fff;background:var(--accent);border-color:var(--accent)}
+.pill.q{color:var(--green);border-color:var(--green);background:var(--green-soft)}
+.pill.drop{color:var(--blue);border-color:var(--blue);background:var(--blue-soft)}
+.pill.warn{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+.pill.no{color:var(--red);border-color:var(--red);background:var(--red-soft)}
+.pill.ok{color:var(--green);border-color:var(--green)}
+.pill.hole{color:var(--red);border-color:var(--red);background:var(--red-soft)}
+/* KPI strip */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.kpi{background:#fff;border:1px solid var(--hairline);padding:14px 16px}
+.kpi .label{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.kpi .val{font-family:var(--serif);font-size:26px;color:var(--ink);line-height:1.15;margin-top:4px}
+.kpi .val em{font-style:normal;color:var(--accent)}
+.kpi .sub{font:11px var(--mono);color:var(--muted);margin-top:4px}
+/* Stage roadmap & 5-level milestone cards */
+.roadmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0}
+.stage-pill{display:block;text-decoration:none;border:1px solid var(--hairline);background:#fff;padding:12px 14px;transition:border-color .15s ease}
+.stage-pill:hover{border-color:var(--ink)}
+.stage-pill.live{border:2px solid var(--accent);background:var(--accent-soft)}
+.stage-pill.draft{border-style:dashed;background:#fcfcfa;opacity:.78}
+.stage-pill .r{font-family:var(--serif);font-size:20px;color:var(--ink);display:block;line-height:1.1}
+.stage-pill .s{font:9.5px var(--mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted);display:block;margin-top:4px}
+.stage-pill.live .s{color:var(--accent);font-weight:600}
+.stage-pill .hint{font-size:11.5px;color:var(--muted);display:block;margin-top:6px;line-height:1.3}
+/* Stage block container */
+.stage{border:1px solid var(--ink);background:#fff;margin:24px 0}
+.stage-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 20px;border-bottom:2px solid var(--ink);background:var(--surface)}
+.stage-head .title{font-family:var(--serif);font-size:28px;color:var(--ink);letter-spacing:-.015em}
+.stage-head .title em{font-style:normal;color:var(--accent)}
+.stage-head .state{font:10px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:600}
+.stage-body{padding:18px 20px 24px}
+.stage.draft{border:1px dashed var(--hairline);background:#fcfcfa}
+.stage.draft .stage-head{border-bottom:1px dashed var(--hairline);background:transparent;padding:14px 20px}
+.stage.draft .stage-head .title{font-size:21px;color:var(--muted)}
+.stage.draft .stage-head .state{color:var(--faint);font-weight:400}
+.stage.draft .stage-body{padding:12px 20px 16px;color:var(--muted);font-size:14px}
+/* Dungeon cards inside stage */
+.d-card{border:1px solid var(--hairline);padding:16px 18px;margin:14px 0;background:var(--paper)}
+.d-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.d-head strong{font-size:16px;font-family:var(--serif);font-weight:500}
+.d-meta{font:11px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.crosslink{display:inline-block;margin-top:6px;font:11px var(--mono);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid var(--ink);color:var(--ink)}
+footer{padding:34px 0 60px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:11px var(--mono);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+@media(max-width:800px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .roadmap{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  body{font-size:14px}.wrap{padding:0 18px}
+  table{font-size:12.5px}th,td{padding-right:8px}.scroll{overflow-x:auto}
+  .stage-head{display:block}.stage-head .state{display:block;margin-top:4px}
+  .stage-body{padding:14px 14px 18px}
+  .roadmap{grid-template-columns:1fr}
+}
+@media print{nav.toc,footer,.topbar{display:none}section,.stage{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="topbar">
+  <a class="home" href="../../">← html notes</a>
+  <div class="topbar-right">
+    <a href="../wow-forever-warlock/">Archivio 20-30</a>
+    <a href="../wow-forever-tailoring/">Tailoring &amp; Cooking →</a>
+  </div>
+</div>
+
+<header>
+  <div class="kicker">Personal notes · Gaming · WoW Forever · Guida a tappe (ogni 5 livelli)</div>
+  <h1>Warlock <em>35+</em></h1>
+  <p class="lede">Guida di livellamento modulare per <strong>Slock Ness</strong> (Gnomo Warlock Alliance, EU Normal): ogni 5 livelli aggiungiamo una nuova tappa con gear verificato dal database WoW Forever, zone ottimali, dungeon con le quest da prendere prima e progressione talenti.</p>
+  <div class="stamp">
+    <span class="chip">PG <b>Slock Ness · Gnomo Warlock</b></span>
+    <span class="chip">Server <b>WoW Forever EU · Alliance</b></span>
+    <span class="chip hi">Tappa attiva <b>35 → 40</b></span>
+    <span class="chip">Build <b>Affliction 21 / Demo 5</b></span>
+    <span class="chip">Professioni <b>Tail 126 · Herb 195 · Cook 171</b></span>
+    <span class="chip">Armory letta <b>25 nov 2026</b></span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#armory">01 Diagnosi gear 35</a>
+  <a href="#roadmap">02 Tappe (ogni 5 liv)</a>
+  <a href="#tappa-35-40">03 Tappa 35 → 40</a>
+  <a href="#pezzi-35-40">· Pezzi must-have</a>
+  <a href="#zone-35-40">· Zone</a>
+  <a href="#dungeon-35-40">· Dungeon</a>
+  <a href="#talenti-35-40">· Talenti &amp; 40</a>
+  <a href="#checklist-35-40">· Checklist</a>
+  <a href="#tappe-future">04 Tappe 40 → 60</a>
+</nav>
+
+<!-- 01: ARMORY SNAPSHOT & DIAGNOSIS -->
+<section id="armory">
+  <h2><span>01</span>Fotografia del personaggio al 35</h2>
+  <p>Letto dall’<a class="crosslink" href="https://www.wowforeveraddon.com/armory/eu/slock-ness/" target="_blank" rel="noopener">Armory di Slock Ness ↗</a> il 25 novembre 2026. Hai già sbloccato <strong>Siphon Life</strong> (21° punto in Affliction): il drain tanking è ufficialmente attivo. Il personaggio ha ottimi pezzi in alcuni slot (Testa, Petto, Piedi, Anelli, Wand), ma si porta dietro <strong>6 buchi grossi</strong> che frenano il danno.</p>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="label">Danno Shadow attuale</div>
+      <div class="val">108</div>
+      <div class="sub">37 SP generico + 71 Shadow</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Target fine tappa 40</div>
+      <div class="val"><em>~170+</em></div>
+      <div class="sub">+60% di danno coi soli drop</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Salute / Mana</div>
+      <div class="val">1.264 <span style="font-size:16px;color:var(--muted)">/ 1.856</span></div>
+      <div class="sub">95 Sta · 84 Int · 104 Spi · 344 Arm</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Obiettivo oro al 40</div>
+      <div class="val">~90g</div>
+      <div class="sub">Felsteed (dà Riding) + training</div>
+    </div>
+  </div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Slot</th><th>Equip attuale (Lv 35)</th><th>Stat utili</th><th>Stato</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Arma 2H</strong></td><td>Staff of Soran'ruk (iLvl 25)</td><td>+34 Shadow, +34 Fire, +14 Sta</td><td><span class="pill hole">Da cambiare</span> superata da SM Library e Drowned City</td></tr>
+      <tr><td><strong>Gambe</strong></td><td>Durable Pants of the Channeler (iLvl 33)</td><td>+5 SP, +9 Sta, +5 Spi</td><td><span class="pill hole">Buco grosso</span> +14 Shadow gratis in SM GY</td></tr>
+      <tr><td><strong>Collo</strong></td><td>Giantstone Medallion (iLvl 32)</td><td>+10 Spirit · <strong>0 SP</strong></td><td><span class="pill hole">Zero danno</span> facile da coprire in SM / RFD</td></tr>
+      <tr><td><strong>Vita</strong></td><td>Nightsky Sash (iLvl 33)</td><td>+8 Int, +3 Sta · <strong>0 SP</strong></td><td><span class="pill hole">Zero danno</span> Briny Sash in Drowned City</td></tr>
+      <tr><td><strong>Polsi</strong></td><td>Sanguine Cuffs (iLvl 25)</td><td>+4 Sta, +2 Spi · <strong>0 SP</strong></td><td><span class="pill hole">Zero danno</span> Mutinous Cuffs garantiti da quest</td></tr>
+      <tr><td><strong>Trinket 1–2</strong></td><td>Lookie's Spyglass · Satchel of Potions</td><td>+1 Spirit · Use random</td><td><span class="pill hole">Slot vuoti</span> Heart of the Primeval in Drowned City</td></tr>
+      <tr><td><strong>Spalle</strong></td><td>Conjurer's Mantle of the Channeler (iLvl 36)</td><td>+4 SP, +8 Sta, +5 Spi</td><td><span class="pill warn">Migliorabile</span> Bloodmage Mantle (+9 SP) in SM GY</td></tr>
+      <tr><td><strong>Schiena</strong></td><td>Heavy Woolen Cloak (iLvl 21)</td><td>+4 SP, +4 Spi</td><td><span class="pill warn">Vecchio</span> Priestess Cloak / Thornweaver Drape</td></tr>
+      <tr><td><strong>Mani</strong></td><td>Gloves of Meditation (iLvl 26)</td><td>+5 SP, +7 Spi</td><td><span class="pill ok">Regge</span> pochi upgrade puliti prima del 40</td></tr>
+      <tr><td><strong>Testa</strong></td><td>Filigreed Shadow Circlet (iLvl 30)</td><td><strong>+14 Shadow</strong>, +12 Sta</td><td><span class="pill ok">Ottimo</span> tienilo oltre il 40</td></tr>
+      <tr><td><strong>Petto</strong></td><td>Sage's Robe of Shadow Wrath (iLvl 32)</td><td><strong>+17 Shadow</strong> (0 Sta)</td><td><span class="pill ok">Forte</span> opz. Robes of the Lich (+14 Sha, +20 Sta)</td></tr>
+      <tr><td><strong>Piedi</strong></td><td>Spidersilk Boots (iLvl 25)</td><td><strong>+7 SP</strong>, +4 Int, +4 Sta</td><td><span class="pill ok">Ottimo</span> batte i drop 35–39</td></tr>
+      <tr><td><strong>Anelli</strong></td><td>Snake Hoop · Ring of Power Regulation</td><td>+6 SP +5 Int · +6 SP +3 mp5</td><td><span class="pill ok">Buoni</span> solo Ruul Onestone (+9 SP) li supera</td></tr>
+      <tr><td><strong>Wand</strong></td><td>Gravestone Scepter (iLvl 29)</td><td>29,0 DPS · <strong>+6 Shadow</strong>, +3 Spi</td><td><span class="pill ok">Buona</span> Plaguerot Sprig in RFD (+6 SP, 39,4 DPS)</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- 02: 5-LEVEL ROADMAP -->
+<section id="roadmap">
+  <h2><span>02</span>Struttura a tappe (ogni 5 livelli)</h2>
+  <p>Ogni tappa copre una fascia stretta di 5 livelli con la stessa scaletta fissa: <strong>pezzi must-have</strong>, <strong>zone</strong>, <strong>dungeon e quest</strong>, <strong>talenti &amp; skill</strong> e <strong>checklist operativa</strong>. Quando chiudi una tappa la archiviamo e compiliamo la successiva leggendo di nuovo l’Armory.</p>
+
+  <div class="roadmap">
+    <a class="stage-pill live" href="#tappa-35-40">
+      <span class="r">35 → 40</span>
+      <span class="s">Tappa attiva</span>
+      <span class="hint">SM, Drowned City, RFD, Riverglades · Wrack &amp; Felsteed</span>
+    </a>
+    <a class="stage-pill draft" href="#tappa-40-45">
+      <span class="r">40 → 45</span>
+      <span class="s">Da compilare al 40</span>
+      <span class="hint">Krol'dok Stronghold, Shen'dralas, Uldaman, Tanaris</span>
+    </a>
+    <a class="stage-pill draft" href="#tappa-45-50">
+      <span class="r">45 → 50</span>
+      <span class="s">Da compilare al 45</span>
+      <span class="hint">Zul'Farrak, Maraudon, Alcaz Island Prison</span>
+    </a>
+    <a class="stage-pill draft" href="#tappa-50-55">
+      <span class="r">50 → 55</span>
+      <span class="s">Da compilare al 50</span>
+      <span class="hint">Sunken Temple, BRD, Felwood, Un'Goro</span>
+    </a>
+    <a class="stage-pill draft" href="#tappa-55-60">
+      <span class="r">55 → 60</span>
+      <span class="s">Da compilare al 55</span>
+      <span class="hint">Blackmaw Hold, Shaper's Terrace, pre-BiS, Hyjal</span>
+    </a>
+  </div>
+</section>
+
+<!-- 03: ACTIVE STAGE 35 -> 40 -->
+<section id="tappa-35-40" style="border-bottom:none;padding-bottom:16px">
+  <div class="stage">
+    <div class="stage-head">
+      <div class="title">Tappa 01 · Livelli <em>35 → 40</em></div>
+      <div class="state">Attiva · Obiettivo: ~170 Shadow Dmg, Wrack &amp; Felsteed</div>
+    </div>
+    <div class="stage-body">
+
+      <div class="box green" style="margin-top:4px">
+        <div class="kicker">Il piano della tappa in 3 righe</div>
+        <p style="margin:0">In WoW Forever i mob in dungeon danno <strong>+50% XP</strong> (hotfix 9 nov): fare <strong>Scarlet Monastery (GY + Library)</strong>, <strong>The Drowned City</strong> e <strong>Razorfen Downs</strong> con tutte le quest ti fa sia expare velocissimo che riempire tutti e 6 i buchi di gear. Tra un dungeon e l'altro fai quest a <strong>Stranglethorn Vale</strong> e nella nuova zona Forever <strong>Riverglades</strong> (dal 36, hub Alliance: <em>Farholde Keep</em>), raccogliendo erbe per arrivare al 40 con i soldi del Felsteed.</p>
+      </div>
+
+      <!-- SUBSECTION: MUST-HAVE GEAR -->
+      <h3 id="pezzi-35-40">A · Pezzi da prendere assolutamente (e dove dropparli)</h3>
+      <p>Tutte le statistiche sotto sono verificate sui <strong>tooltip live di WoW Forever</strong> (non sul suggeritore automatico dell'Armory, che sbaglia i pezzi solo Fire o solo Frost). Nessuno di questi pezzi si compra all'asta: sono tutti <strong>BoP</strong> da boss o quest.</p>
+
+      <div class="box">
+        <div class="kicker">La combo migliore del blocco: +60 Shadow Damage in mano</div>
+        <p style="margin:0">L'Armory confronta solo arma contro arma, ma in WoW Forever <strong>Hypnotic Blade</strong> (pugnale 1H, <strong>+44 SP</strong>, Arcanist Doan in SM Library) si abbina a un Off-Hand: con <strong>Orb of the Forgotten Seer</strong> (+14 SP, Thalnos in SM GY) fa <strong>+58 SP</strong> subito al 35, e con <strong>Mordresh's Lifeless Skull</strong> (+16 Shadow, Mordresh in RFD) arriva a <strong>+60 Shadow</strong> — ben +26 rispetto alla Staff of Soran'ruk e +14 sopra anche alla Bloodspine Staff 2H!</p>
+      </div>
+
+      <div class="scroll">
+      <table>
+        <thead><tr><th>Priorità</th><th>Slot</th><th>Pezzo</th><th>Stat Forever (vs attuale)</th><th>Dove dropparlo / prenderlo</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Main Hand (1H)</strong></td>
+            <td><strong>Hypnotic Blade</strong><br><span style="color:var(--muted);font-size:12px">req 34 · iLvl 39</span></td>
+            <td><strong>+44 SP</strong>, +8 Int, +3 Spi<br><em>(+10 sulla Soran'ruk + libera l'Off-Hand!)</em></td>
+            <td><span class="pill drop">Boss</span> <strong>Arcanist Doan</strong> · SM: Library (drop frequente)</td>
+          </tr>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Off-Hand</strong><br><span style="color:var(--muted);font-size:12px">(con Blade)</span></td>
+            <td><strong>Mordresh's Lifeless Skull</strong> (36)<br>oppure <strong>Orb of the Forgotten Seer</strong> (32)</td>
+            <td>Skull: <strong>+16 Shadow</strong>, +5 Spi<br>Orb: <strong>+14 SP</strong><br><em>(totale combo: +58 / +60 Shadow!)</em></td>
+            <td><span class="pill drop">Boss</span> Skull: <strong>Mordresh Fire Eye</strong> (RFD)<br><span class="pill drop">Boss</span> Orb: <strong>Bloodmage Thalnos</strong> (SM: GY)</td>
+          </tr>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Arma 2H</strong><br><span style="color:var(--muted);font-size:12px">(se non esce 1H+OH)</span></td>
+            <td><strong>Bloodspine Staff</strong> (req 36)<br>oppure <strong>Illusionary Rod</strong> (req 34)</td>
+            <td>Bloodspine: <strong>+46 SP</strong>, +12 Sta, +11 Int, +12 Spi<br>Rod: <strong>+44 SP</strong>, +10 Sta, +6 Int, +7 Spi, +1% crit</td>
+            <td><span class="pill drop">Boss</span> Bloodspine: <strong>Deathless Marrow</strong> (The Drowned City)<br><span class="pill drop">Boss</span> Rod: <strong>Arcanist Doan</strong> (SM: Library)</td>
+          </tr>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Gambe</strong></td>
+            <td><strong>Blighted Leggings</strong><br><span style="color:var(--muted);font-size:12px">req 30 · iLvl 35</span></td>
+            <td><strong>+19 Shadow</strong>, +14 Spi, 45 Arm<br><em>(<strong>+14 Shadow</strong> sulle attuali!)</em></td>
+            <td><span class="pill drop">Rare boss</span> <strong>Azshir the Sleepless</strong> · SM: Graveyard (non spawna ogni run)</td>
+          </tr>
+          <tr>
+            <td><span class="pill q">Garantito</span></td>
+            <td><strong>Gambe</strong><br><span style="color:var(--muted);font-size:12px">(paracadute)</span></td>
+            <td><strong>Apprentice Sorcerer's Slacks</strong><br><span style="color:var(--muted);font-size:12px">iLvl 41 · Nuovo Forever</span></td>
+            <td><strong>+8 SP</strong>, +9 Int, +17 Spi, 52 Arm<br><em>(+3 SP e tanto Int/Spi se Azshir non esce)</em></td>
+            <td><span class="pill q">Quest Alliance</span> <em>The Web of Magic</em> · The Drowned City</td>
+          </tr>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Vita</strong></td>
+            <td><strong>Briny Sash</strong><br><span style="color:var(--muted);font-size:12px">req 35 · iLvl 40 · Nuovo Forever</span></td>
+            <td><strong>+9 SP</strong> (+26 heal), +9 Int, 63 Arm tot<br><em>(<strong>+9 SP</strong> sulla Nightsky Sash!)</em></td>
+            <td><span class="pill drop">Boss</span> <strong>Captain Dreadrise</strong> · The Drowned City (drop frequente). Alternativa: <em>Deathmage Sash</em> (+7 SP, +15 Int, Mordresh in RFD)</td>
+          </tr>
+          <tr>
+            <td><span class="pill q">Garantito</span></td>
+            <td><strong>Polsi</strong></td>
+            <td><strong>Mutinous Cuffs</strong><br><span style="color:var(--muted);font-size:12px">iLvl 42 · Nuovo Forever</span></td>
+            <td><strong>+7 SP</strong>, +7 Sta, 24 Arm<br><em>(<strong>+7 SP</strong> e +3 Sta sui Sanguine Cuffs, zero RNG!)</em></td>
+            <td><span class="pill q">Quest</span> <em>The Saltseer Captain</em> · <strong>Krazek</strong>, Booty Bay (27.0, 77.2) → The Drowned City</td>
+          </tr>
+          <tr>
+            <td><span class="pill must">Must-have</span></td>
+            <td><strong>Collo</strong></td>
+            <td><strong>Scorn's Icy Choker</strong> (30)<br>oppure <strong>Glowing Eye of Mordresh</strong> (36)</td>
+            <td>Scorn: <strong>+7 SP</strong>, +6 Int, +5 Sta<br>Glowing Eye: <strong>+7 SP</strong>, +8 Int<br><em>(<strong>+7 SP</strong> sul Giantstone Medallion!)</em></td>
+            <td><span class="pill drop">Trash</span> Scorn: <strong>Scarlet Monastery</strong> (drop frequente)<br><span class="pill drop">Boss</span> Glowing Eye: <strong>Mordresh Fire Eye</strong> (RFD)</td>
+          </tr>
+          <tr>
+            <td><span class="pill drop">Forte</span></td>
+            <td><strong>Spalle</strong></td>
+            <td><strong>Bloodmage Mantle</strong><br><span style="color:var(--muted);font-size:12px">req 30 · iLvl 35</span></td>
+            <td><strong>+9 SP</strong>, +9 Int, 38 Arm<br><em>(+5 SP e +9 Int, perdi 8 Sta)</em></td>
+            <td><span class="pill drop">Boss</span> <strong>Bloodmage Thalnos</strong> · SM: Graveyard (alternativa: <em>Inquisitor's Shawl</em> +7 SP +13 Int da Fairbanks in SM Cathedral)</td>
+          </tr>
+          <tr>
+            <td><span class="pill drop">Forte</span></td>
+            <td><strong>Trinket</strong></td>
+            <td><strong>Heart of the Primeval</strong><br><span style="color:var(--muted);font-size:12px">req 35 · iLvl 40 · Nuovo Forever</span></td>
+            <td>+18 Frost Res · <strong>Use: +19 SP per 30s</strong> (6m CD)<br><em>(sostituisce Lookie's Spyglass!)</em></td>
+            <td><span class="pill drop">Boss opz.</span> <strong>Primeval Elemental</strong> · stanza subacquea sotto la vasca centrale di The Drowned City</td>
+          </tr>
+          <tr>
+            <td><span class="pill drop">Utile</span></td>
+            <td><strong>Wand</strong></td>
+            <td><strong>Plaguerot Sprig</strong><br><span style="color:var(--muted);font-size:12px">req 37 · iLvl 42</span></td>
+            <td><strong>39,4 DPS</strong> (Nature), <strong>+6 SP</strong>, +5 Shadow Res<br><em>(stesso +6 SP della Gravestone, ma +10,4 DPS!)</em></td>
+            <td><span class="pill drop">Boss</span> <strong>Plaguemaw the Rotting</strong> · Razorfen Downs (escort Belnistrasz)</td>
+          </tr>
+          <tr>
+            <td><span class="pill drop">Opz.</span></td>
+            <td><strong>Petto</strong></td>
+            <td><strong>Robes of the Lich</strong><br><span style="color:var(--muted);font-size:12px">req 38 · iLvl 43</span></td>
+            <td><strong>+14 Shadow</strong>, +14 Frost, <strong>+20 Sta</strong>, 62 Arm<br><em>(-3 Shadow sulla Sage's Robe ma <strong>+200 HP</strong>!)</em></td>
+            <td><span class="pill drop">Boss</span> <strong>Amnennar the Coldbringer</strong> · Razorfen Downs</td>
+          </tr>
+          <tr>
+            <td><span class="pill drop">Opz.</span></td>
+            <td><strong>Schiena</strong></td>
+            <td><strong>Priestess Cloak</strong> (35)<br>o <strong>Thornweaver Drape</strong> (25)</td>
+            <td>Priestess: +4 SP, +9 Int, <strong>+4 mp5</strong>, 29 Arm<br>Thornweaver: <strong>+7 SP</strong>, +6 Spi, 24 Arm</td>
+            <td><span class="pill drop">Boss</span> Priestess: <strong>Var'Taka</strong> (Drowned City)<br><span class="pill drop">Boss</span> Thornweaver: <strong>Roogug</strong> (RFK, solo se ci passi)</td>
+          </tr>
+          <tr>
+            <td><span class="pill warn">Bonus</span></td>
+            <td><strong>Anello</strong></td>
+            <td><strong>Ruul's Secondstone</strong><br><span style="color:var(--muted);font-size:12px">req 36 · iLvl 41 · Nuovo Forever</span></td>
+            <td><strong>+9 SP</strong>, +9 Spi<br><em>(+3 SP su uno dei tuoi due anelli)</em></td>
+            <td><span class="pill warn">Rare</span> <strong>Ruul Onestone</strong> · Arathi Highlands (se passi in zona controllalo)</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="box red">
+        <div class="kicker">Trappole verificate da NON rollare / NON inseguire</div>
+        <ul style="margin:4px 0 0 18px">
+          <li><strong>Robe of Doan</strong> (SM Library): l'Armory la segna come "+16 spell damage", ma in gioco dà <strong>+16 solo Fire</strong>. Per Affliction è inutile.</li>
+          <li><strong>Coldbringer Spine</strong> (staffa di Amnennar in RFD): dà <strong>+59 solo Frost</strong>. Lasciala ai Mage!</li>
+          <li><strong>Robe of the Drowned</strong> (Primeval Elemental, Drowned City): +15 Sta, +11 Int, +4 mp5, ma <strong>0 Spell Power</strong>. La tua Sage's Robe (+17 Shadow) è molto meglio.</li>
+          <li><strong>Whitemane's Chapeau</strong> (SM Cathedral): solo +7 SP (+20 heal) — il tuo <strong>Filigreed Shadow Circlet (+14 Shadow)</strong> la distrugge.</li>
+          <li><strong>City of Dalaran</strong> (Ephemeral Grips / Violet Sorcerer): resta scomoda/attunement lato Alterac-Silverpine; al 35 è già superata da SM e Drowned City.</li>
+        </ul>
+      </div>
+
+      <!-- SUBSECTION: ZONES -->
+      <h3 id="zone-35-40">B · In quali zone andare (percorso Alliance 35 → 40)</h3>
+      <p>In WoW Forever <strong>non c'è level scaling</strong>: resta sempre su mob gialli/verdi (mai arancioni). Tieni sempre attivo il <strong>cibo craftato (+5% XP dai kill)</strong>, riposa ai <strong>campfire</strong> per il rested XP e raccogli ogni fiore con <strong>Herbalism (195→225)</strong> per finanziare il Felsteed al 40.</p>
+
+      <div class="scroll">
+      <table>
+        <thead><tr><th class="num">Liv</th><th>Zona &amp; Hub Alliance</th><th>Cosa fare in pratica</th><th>Erbe / Stoffa</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="n">35 – 36</td>
+            <td><strong>Stranglethorn Vale (nord/centro)</strong><br>Rebel Camp · Campo Nesingwary · Booty Bay</td>
+            <td>Quest di caccia di Nesingwary (ottima XP veloce) e prime quest a Booty Bay. Mentre sei a Booty Bay prendi subito da <strong>Krazek (27.0, 77.2)</strong> le quest per <em>The Drowned City</em>.</td>
+            <td>Silk · Goldthorn, Khadgar's Whisker</td>
+          </tr>
+          <tr>
+            <td class="n">35 – 36</td>
+            <td><strong>Arathi Highlands</strong> / <strong>Desolace</strong><br>Refuge Pointe · Nijel's Point</td>
+            <td>Se STV è affollata (o per variare): chiudi le quest gialle di Arathi (occhio al rare <strong>Ruul Onestone</strong> per l'anello +9 SP) o le catene centrali di Desolace.</td>
+            <td>Silk · Fadeleaf, Goldthorn</td>
+          </tr>
+          <tr>
+            <td class="n">36 – 38</td>
+            <td><strong>Riverglades</strong> <span class="pill q">Nuova Forever</span><br><strong>Farholde Keep</strong> (sud-est, ~64, 82) + porto goblin</td>
+            <td><strong>Zona principale del blocco!</strong> Nuova zona Forever 36–44 con <strong>82 quest Alliance</strong> super dense attorno a Farholde Keep e alla costa (partono dal 36–38, poi continuano fino al 42+). Meno dispersiva delle vecchie zone Classic.</td>
+            <td>Silk → prime Mageweave · erbe 185–225</td>
+          </tr>
+          <tr>
+            <td class="n">36 – 38</td>
+            <td><strong>Dustwallow Marsh</strong><br>Theramore Isle</td>
+            <td>Ottima alternativa a Kalimdor: quest compatte intorno a Theramore e Brackenwall, e comoda come base per scendere verso <strong>Razorfen Downs</strong> (Barrens sud) al 37–38.</td>
+            <td>Silk · Blindweed, Fadeleaf</td>
+          </tr>
+          <tr>
+            <td class="n">38 – 40</td>
+            <td><strong>Riverglades (quest 38–40)</strong> + <strong>STV sud</strong> + <strong>Badlands</strong></td>
+            <td>Finisci la seconda ondata di quest di Riverglades (38–40), completa le quest di Booty Bay di fascia alta e apri Badlands (che ti prepara a Uldaman nella prossima tappa 40→45). Alterna con 1–2 run di <strong>RFD</strong> e <strong>SM Cathedral</strong> per chiudere il 40.</td>
+            <td>Prime <strong>Mageweave</strong> (tieni tutto in banca per Tailoring!)</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <!-- SUBSECTION: DUNGEONS -->
+      <h3 id="dungeon-35-40">C · Quali dungeon fare (in ordine di livello) e quest obbligatorie</h3>
+      <p>Con il <strong>+50% XP sui mob in dungeon</strong>, ogni istanza fatta con le sue quest vale quasi mezzo livello + 2–4 upgrade di gear. <strong>Regola XP Forever:</strong> tieni il gruppo vicino di livello (se qualcuno è troppo alto sopra i mob, blocca l'XP a tutto il party).</p>
+
+      <div class="d-card">
+        <div class="d-head">
+          <strong>1. Scarlet Monastery: Graveyard (30–38) &amp; Library (33–41)</strong>
+          <span class="d-meta">Subito al 35 · Tirisfal Glades · Priorità massima</span>
+        </div>
+        <p style="margin:4px 0 8px"><strong>Perché andarci subito:</strong> in una sola serata copri fino a <strong>5 slot</strong> e prendi la <strong>Scarlet Key</strong> dalla cassa dietro Arcanist Doan (che apre Armory e Cathedral).</p>
+        <ul style="margin:0 0 8px 18px">
+          <li><strong>Graveyard:</strong> <em>Bloodmage Thalnos</em> → <strong>Bloodmage Mantle</strong> (+9 SP) e <strong>Orb of the Forgotten Seer</strong> (+14 SP OH). Controlla sempre se è spawnato il rare <em>Azshir the Sleepless</em> → <strong>Blighted Leggings</strong> (+19 Shadow!). Trash <em>Scorn</em> → <strong>Scorn's Icy Choker</strong> (+7 SP).</li>
+          <li><strong>Library:</strong> <em>Arcanist Doan</em> → <strong>Hypnotic Blade</strong> (+44 SP 1H) o <strong>Illusionary Rod</strong> (+44 SP 2H). <em>Attento alla Detonation:</em> appena Doan fa la bolla scappa lontano! Poi <strong>loota la cassa dietro di lui per la Scarlet Key</strong>.</li>
+          <li><strong>Quest Alliance prima di partire:</strong> <em>Mythology of the Titans</em> (Librarian Mae Paledust, Ironforge 75, 12 — Library) · <em>In the Name of the Light</em> (Raleigh the Devout, Southshore 51.5, 58.4 — si chiude poi in Armory/Cathedral).</li>
+        </ul>
+      </div>
+
+      <div class="d-card" style="border-color:var(--accent)">
+        <div class="d-head">
+          <strong>2. The Drowned City (35–40) <span class="pill q">Nuovo Forever</span></strong>
+          <span class="d-meta">Livello ideale 36–38 · Stranglethorn Vale ovest (21.4, 27.9) · 8 boss</span>
+        </div>
+        <p style="margin:4px 0 8px"><strong>Come arrivarci:</strong> vola a Booty Bay e nuota a nord-ovest oltre The Vile Reef fino alla grotta subacquea a <strong>21.4, 27.9</strong>. Sei un Warlock: casta <strong>Unending Breath</strong> su tutto il party per la nuotata!</p>
+        <ul style="margin:0 0 8px 18px">
+          <li><strong>Drop chiave:</strong> <em>Captain Dreadrise</em> → <strong>Briny Sash</strong> (+9 SP, +9 Int — interrompi Waterbolt Volley e spacca subito le bolle) · <em>Deathless Marrow</em> → <strong>Bloodspine Staff</strong> (+46 SP, +12 Sta, +11 Int — uccidete gli add per farlo prendere +20% danni a stack) · <em>Primeval Elemental</em> (boss nascosto sott'acqua sotto la vasca centrale!) → <strong>Heart of the Primeval</strong> (Trinket Use +19 SP) · <em>Var'Taka</em> → <strong>Priestess Cloak</strong> (+4 SP, +9 Int, +4 mp5).</li>
+          <li><strong>Quest Alliance OBBLIGATORIE prima di entrare:</strong>
+            <br>• <strong>The Saltseer Captain</strong> + <em>Shady Saltseers</em> — <strong>Krazek</strong>, Booty Bay (27.0, 77.2) → reward garantita <strong>Mutinous Cuffs</strong> (+7 SP, +7 Sta)!
+            <br>• <strong>Magics of the Drowned City</strong> + <em>Take Two With Water</em> — <strong>Loremaster Dibbs</strong>, Southshore (50.6, 57.0) → porta alle reward <em>Apprentice Sorcerer's Slacks</em> (+8 SP) e <em>Ancient Voodoo Pouch</em> (+5 SP, +12 vs Undead OH).
+            <br>• <strong>Ancient Gurubashi Secrets</strong> — <strong>Archmage Timear</strong>, Dalaran (15.6, 73.6).
+          </li>
+        </ul>
+      </div>
+
+      <div class="d-card">
+        <div class="d-head">
+          <strong>3. Razorfen Downs (37–46)</strong>
+          <span class="d-meta">Dal 37–38 · Barrens sud (Kalimdor) · 6 boss</span>
+        </div>
+        <p style="margin:4px 0 8px"><strong>Perché andarci:</strong> chiude la combo arma migliore della fascia (<strong>Mordresh's Lifeless Skull</strong> +16 Shadow OH) e ti regala wand, collo e vestito da sopravvivenza.</p>
+        <ul style="margin:0 0 8px 18px">
+          <li><strong>Drop chiave:</strong> <em>Mordresh Fire Eye</em> → <strong>Mordresh's Lifeless Skull</strong> (+16 Shadow OH), <strong>Glowing Eye of Mordresh</strong> (+7 SP Neck) e <strong>Deathmage Sash</strong> (+7 SP Waist) · <em>Plaguemaw the Rotting</em> (escort Belnistrasz) → <strong>Plaguerot Sprig</strong> (Wand 39,4 DPS, +6 SP) · <em>Amnennar the Coldbringer</em> → <strong>Robes of the Lich</strong> (+14 Shadow, +20 Sta).</li>
+          <li><strong>Quest Alliance:</strong> <em>Bring the Light</em> (Archbishop Benedictus, Stormwind) + <em>Scourge of the Downs</em> e <em>Extinguishing the Idol</em> (da Belnistrasz dentro il dungeon).</li>
+          <li><strong>Tip Warlock:</strong> porta il <strong>Felhunter dal 36+</strong> con <em>Spell Lock</em> per interrompere le Fireball di Mordresh!</li>
+        </ul>
+      </div>
+
+      <div class="d-card">
+        <div class="d-head">
+          <strong>4. Scarlet Monastery: Armory (36–44) &amp; Cathedral (38–46)</strong>
+          <span class="d-meta">Dal 38–40 · Serve Scarlet Key dalla Library</span>
+        </div>
+        <p style="margin:4px 0 6px">Meno prioritari per loot puro rispetto a Library/Drowned City/RFD, ma ottimi al 38–40 per chiudere <em>In the Name of the Light</em> (reward Off-Hand <strong>Orb of Lorica</strong> +10 Int +6 SP se non hai ancora un OH) e per <strong>Inquisitor's Shawl</strong> (+7 SP, +13 Int) dal boss opzionale <em>High Inquisitor Fairbanks</em> in Cathedral.</p>
+      </div>
+
+      <!-- SUBSECTION: TALENTS & LEVEL 40 -->
+      <h3 id="talenti-35-40">D · Talenti 36 → 40, Skill e il salto del livello 40</h3>
+      <p>Al 35 hai <strong>26 punti spesi: 21 in Affliction e 5 in Demonology (Unholy Power)</strong>. Tra il 36 e il 40 guadagni 5 punti (totale 31 al 40). Qui c'è una scelta chiave di WoW Forever:</p>
+
+      <div class="box warn">
+        <div class="kicker">Attenzione al livello 40: Wrack chiede 30 punti in Affliction!</div>
+        <p style="margin:0">In WoW Forever <strong>Wrack</strong> (31° punto in Affliction) è il talento che da solo fa circa metà del danno Affliction verso il 60. Con i 5 punti attualmente in Demonology, al 40 saresti a 26/5/0 e rimanderesti Wrack fino al 45. <strong>Consiglio:</strong> dal 36 al 39 metti tutti i punti in Affliction, poi <strong>al livello 40 fai respec al trainer</strong> (quando si apre anche Dual Spec) spostando quei 5 punti da Demonology dentro Affliction per prendere subito <strong>Wrack (31/0/0)</strong>!</p>
+      </div>
+
+      <div class="scroll">
+      <table>
+        <thead><tr><th class="num">Liv</th><th>Talento consigliato</th><th>Skill dal Trainer &amp; Demon Trainer (Grimoire)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="n">36</td>
+            <td><strong>Improved Bane of Agony 1/2</strong></td>
+            <td><strong>Spell Lock</strong> (Grimoire Felhunter — fondamentale per Dreadrise e Mordresh!) · <strong>Create Spellstone</strong> · Shadow Bolt r5 / nuovi ranghi Drain Life &amp; Immolate. <em>Ricorda: in Forever le nuove skill non vanno in barra da sole!</em></td>
+          </tr>
+          <tr>
+            <td class="n">37</td>
+            <td><strong>Improved Bane of Agony 2/2</strong></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="n">38</td>
+            <td><strong>Pandemic → 3/3</strong> <span style="color:var(--muted)">(ora sei 2/3)</span></td>
+            <td><strong>Corruption r5</strong> · <strong>Bane of Agony r4</strong> · <strong>Drain Life r4</strong> · <strong>Demon Armor r3</strong> · <strong>Drain Soul r3</strong> (livello caro: metti da parte oro)</td>
+          </tr>
+          <tr>
+            <td class="n">39</td>
+            <td><strong>Fel Concentration → 2/3</strong> <span style="color:var(--muted)">(o Soul Siphon 1/3)</span></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="n">40</td>
+            <td><strong>RESPEC → 31 Affliction · Wrack 1/1!</strong><br><span style="color:var(--muted);font-size:12px">Esempio 31/0/0: Imp. Corruption 5, Suppression 2, Imp. Life Tap 2, Soul Harvest 2, Imp. Drains 3, Imp. Bane of Agony 2, Fel Conc 2, Amplify Curse 1, Pandemic 3, Malevolence 5, Siphon Life 1, Soul Siphon 2 → <strong>Wrack 1</strong></span></td>
+            <td><strong>Summon Felsteed</strong> (quest di classe — in Forever dal 9 nov concede anche la <strong>Riding skill</strong>!) · <strong>Howl of Terror</strong> · <strong>Dual Spec</strong> · Life Tap r4</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p><strong>Professioni 35 → 40 (senza bruciare l'oro del Felsteed):</strong></p>
+      <ul>
+        <li><strong>Cooking (171 → 225):</strong> a 175 passa a <em>Rockscale Cod</em> (pochi silver) e tieni <strong>sempre attivo il cibo +5% XP</strong>.</li>
+        <li><strong>Herbalism (195 → 225):</strong> allena <strong>Artisan Herbalism (300)</strong> a Stormwind/Ironforge appena puoi (dal 35, skill 200+) e vendi in AH Fadeleaf, Goldthorn, Khadgar's Whisker e Blindweed per fare cassa verso i 90g.</li>
+        <li><strong>Tailoring (126 → 150+):</strong> non spendere oro in asta ora! Metti in banca tutta la Silk e la Mageweave che droppi tra 35 e 40: ci pensi appena hai pagato il Felsteed al 40 (quando allenerai anche Artisan Tailoring 300).</li>
+      </ul>
+
+      <!-- SUBSECTION: CHECKLIST -->
+      <h3 id="checklist-35-40">E · Checklist operativa 35 → 40</h3>
+      <ol class="steps">
+        <li><strong>Prima di fare dungeon (a 35):</strong> prendi le quest Alliance di SM Library (<em>Mythology of the Titans</em> a Ironforge), SM Cath (<em>In the Name of the Light</em> a Southshore) e Drowned City (<em>Loremaster Dibbs</em> a Southshore + <em>Krazek</em> a Booty Bay per <strong>Mutinous Cuffs</strong>).</li>
+        <li><strong>Subito a 35:</strong> fai 1–2 giri di <strong>SM Graveyard + Library</strong> → punta a <strong>Hypnotic Blade</strong> (o Illusionary Rod), <strong>Orb of the Forgotten Seer</strong>, <strong>Bloodmage Mantle</strong>, <strong>Scorn's Icy Choker</strong>, <strong>Blighted Leggings</strong> (se spawna Azshir) e prendi la <strong>Scarlet Key</strong> dietro Doan.</li>
+        <li><strong>35 → 36 in open world:</strong> quest veloci a <strong>STV nord (Nesingwary)</strong> / <strong>Arathi</strong> (controlla il rare Ruul Onestone) mentre raccogli erbe.</li>
+        <li><strong>Al 36:</strong> compra <strong>Spell Lock</strong> dal Demon Trainer (Grimoire Felhunter), entra a <strong>Riverglades (Farholde Keep)</strong> e fai 1–2 run di <strong>The Drowned City</strong> (porta Unending Breath!) → prendi <strong>Mutinous Cuffs</strong> (quest), <strong>Briny Sash</strong>, <strong>Heart of the Primeval</strong> (boss subacqueo!) e <strong>Bloodspine Staff</strong> (se non hai già Blade+OH).</li>
+        <li><strong>Al 37–38:</strong> scendi a <strong>Razorfen Downs</strong> (con quest <em>Bring the Light</em> da Stormwind + Belnistrasz dentro) → punta a <strong>Mordresh's Lifeless Skull</strong> (+16 Shadow OH), <strong>Glowing Eye of Mordresh</strong>, <strong>Plaguerot Sprig</strong> (wand) e opzionale <strong>Robes of the Lich</strong>.</li>
+        <li><strong>38 → 40:</strong> finisci le quest 38–40 a <strong>Riverglades</strong> + STV sud / Badlands (e un giro di <strong>SM Cathedral</strong> per chiudere <em>In the Name of the Light</em>).</li>
+        <li><strong>Al 40:</strong> respec 31 Affliction per <strong>Wrack</strong>, prendi <strong>Summon Felsteed</strong> (con Riding), <strong>Howl of Terror</strong> e <strong>Dual Spec</strong>. Poi riapriamo l'Armory e compiliamo la <strong>Tappa 40 → 45</strong>!</li>
+      </ol>
+
+    </div>
+  </div>
+</section>
+
+<!-- 04: FUTURE 5-LEVEL STAGES -->
+<section id="tappe-future">
+  <h2><span>04</span>Prossime tappe (da compilare ogni 5 livelli)</h2>
+  <p>Ogni blocco si sblocca quando raggiungi il livello di partenza: rileggiamo il gear live dall'Armory e costruiamo il percorso esatto per i 5 livelli successivi.</p>
+
+  <div class="stage draft" id="tappa-40-45">
+    <div class="stage-head">
+      <div class="title">Tappa 02 · Livelli 40 → 45</div>
+      <div class="state">Da compilare al livello 40</div>
+    </div>
+    <div class="stage-body">
+      Anticipazione: <strong>Wrack</strong> attivo, <strong>Felsteed</strong>, nuovo dungeon Forever <strong>Krol'dok Stronghold (40–45)</strong> in Riverglades, <strong>Uldaman (41–51)</strong>, nuova zona <strong>Shen'dralas (40–45)</strong>, Tanaris e Feralas. Mageweave per Tailoring 200+.
+    </div>
+  </div>
+
+  <div class="stage draft" id="tappa-45-50">
+    <div class="stage-head">
+      <div class="title">Tappa 03 · Livelli 45 → 50</div>
+      <div class="state">Da compilare al livello 45</div>
+    </div>
+    <div class="stage-body">
+      Anticipazione: <strong>Zul'Farrak (44–54)</strong>, <strong>Maraudon (46–55)</strong>, nuovo dungeon Forever <strong>Alcaz Prison (48–53)</strong> a Dustwallow Marsh, Hinterlands, Searing Gorge e Death Coil (42) / Soul Fire (48).
+    </div>
+  </div>
+
+  <div class="stage draft" id="tappa-50-55">
+    <div class="stage-head">
+      <div class="title">Tappa 04 · Livelli 50 → 55</div>
+      <div class="state">Da compilare al livello 50</div>
+    </div>
+    <div class="stage-body">
+      Anticipazione: <strong>Sunken Temple (50–60)</strong>, primi giri di <strong>Blackrock Depths (52–60)</strong>, Felwood, Un'Goro Crater, Burning Steppes e quest di classe Warlock di fascia alta.
+    </div>
+  </div>
+
+  <div class="stage draft" id="tappa-55-60">
+    <div class="stage-head">
+      <div class="title">Tappa 05 · Livelli 55 → 60</div>
+      <div class="state">Da compilare al livello 55</div>
+    </div>
+    <div class="stage-body">
+      Anticipazione: nuovi dungeon Forever <strong>Blackmaw Hold (55–60)</strong> e <strong>Shaper's Terrace (58–60)</strong>, Dire Maul, Scholomance, Stratholme, pre-raid BiS Affliction (35/11/5 con Wrack e Bane of Doom) e accesso a <strong>Mount Hyjal</strong>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>Armory &amp; database verificati su wowforeveraddon.com · 25 nov 2026</span>
+  <span><a href="../../">← html notes</a> · <a href="../wow-forever-warlock/">Warlock 20-30</a> · <a href="../wow-forever-tailoring/">Tailoring</a></span>
+</footer>
+
+</div>
+</body>
+</html>
